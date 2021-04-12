@@ -1,0 +1,125 @@
+/*CLASES */
+.color{
+  color:white;
+}
+header{
+  width:100%;
+  background-color: var(--color2);
+}
+.navigation{
+  width: 100%;
+}
+.navigation ul {
+  margin:0;
+  padding:0;
+  list-style: none;
+  display: none;
+}
+.navigation ul.show{
+  display: flex;
+  flex-direction: column;
+}
+
+.navigation ul li a {
+  font-size: 25px;
+  text-align: center;
+  color:white;
+  text-decoration: none;
+  display: block;
+  padding: 0.5rem 0;
+  transition: all 0.4s linear;
+  border-radius: 5px;
+}
+.navigation ul li a:hover{
+  background-color: var(--color3);
+}
+.menu-icon{
+  color:white;
+  cursor:pointer;
+  margin: 0 auto;
+  width:100%;
+  text-align: center;
+}
+.menu-icon img{
+  width: 8%;
+  background-color: white;
+  border-radius: 15px;
+  padding: 5px;
+}
+
+.bienvenido img{
+  width: 15%;
+  border-radius:50%;
+}
+
+#general{
+  text-align: center;
+}
+#imagenMenu img{
+  width: 100px;
+  height: 120px;
+}
+#imagenMenu h2{
+  color: white;
+}
+#texto{
+  text-align: center;
+  color:white;
+}
+
+@media only screen and (min-width: 767px) {
+  #general{
+    padding-top: 60px;
+  }
+  #general{
+    padding-top: 0px;
+  }
+  .menu-icon img{
+    width: 4%;
+    background-color: white;
+    border-radius: 15px;
+    padding: 5px;
+  }
+  .bienvenido img{
+    width: 10%;
+  }
+
+}
+@media only screen and (min-width: 1200px) {
+  .navigation{
+    position:fixed;
+    left:0;
+    top:0;
+    right: 0;
+    background-color: var(--color2);
+  }
+  .menu-icon{
+    display: none;
+  }
+
+  .navigation ul.show{
+    flex-direction: inherit;
+  }
+  .navigation ul{
+    width:100%;
+    display: flex;
+  }
+  .navigation ul li{
+    display:inline-block;
+    margin: 0 auto;
+  }
+  .navigation ul li a{
+    display: block;
+    padding:0.5em 1em;
+  }
+
+  .bienvenido{
+    position: absolute;
+    top:130px;
+    right: 0px;
+    width: 300px;
+  }
+  .bienvenido img{
+    width: 20%;
+  }
+}

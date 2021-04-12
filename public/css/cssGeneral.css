@@ -1,0 +1,713 @@
+.boton3 {
+  color: black;/*#318aac !important;*/
+  font-size: 20px;
+  font-weight: 500;
+  padding: 0.25em 1em;
+  background: rgba(0,0,0,0);
+  border: 2px solid;
+  border-color: black;/*#318aac;*/
+  transition: all 1s ease;
+  position: relative;
+  border-radius: 50px;
+  margin-top:1em;
+}
+.boton3:hover {
+  background: var(--color3);/*#318aac;*/
+  color: #fff !important;
+}
+
+.boton1{
+  margin: 1em 0;
+  text-decoration: none;
+  padding: 10px;
+  font-weight: 600;
+  font-size: 20px;
+  color: #ffffff;
+  background-color: #1883ba;
+  border-radius: 6px;
+  border: 2px solid #0016b0;
+}
+.boton1:hover{
+  color: #1883ba;
+  background-color: #ffffff;
+}
+
+
+
+/*CLASES COMUNES*/
+.negrita{
+  font-weight: bold;
+}
+.error{
+  color:red;
+}
+
+.ocultar{
+  display: none;
+}
+.tituloR a{
+  text-decoration: none;
+  color:black;
+}
+
+.botonSubir{
+  border-radius: 25px;
+  background-color: var(--color4);
+}
+
+/*hechas estas dos clases para poner el footer abajo, una dice que es flex el padre, y otra que el contenedor del template
+crecerá para ocupar el maximo espacio del contenido*/
+#container{
+  display: flex;
+  flex-direction: column;
+}
+
+.grow{
+  flex-grow: 1;
+  max-width: 1200px;
+  margin:0 auto;
+}
+/*BUSCADOR- PRINCIPAL*/
+.buscador{
+  border-radius:25px;
+  text-align: center;
+  padding: 0.5em;
+  margin:0.5em 0;
+  background-color: var(--color2);
+}
+/*RUTINAS RECETAS - PRINCIPAL*/
+
+.rutinas , .recetas , .titulo{
+  text-align: center;
+}
+
+.rutinas a, .recetas a ,.titulo a{
+  text-decoration: none;
+  color:black;
+}
+
+.titulo{
+  background-color: var(--color3);
+
+}
+.titulo > a{
+  color:white;
+}
+.rutina, .receta{
+  border-bottom:solid 2px var(--color1);
+  margin:0.5em 0.5em;
+}
+
+.rutina:nth-last-of-type(1), .receta:nth-last-of-type(1){
+  border-bottom:none;
+}
+
+.receta img{
+  width: 100%;
+}
+
+#vermasRutinas , #vermasRecetas{
+  display: inline-block;
+  padding: 5px 15px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #5D6D7E;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+  margin:1em 0;
+  margin-left: 1em;
+}
+
+#vermasRutinas:hover , #vermasRecetas:hover{
+  background-color: #85929E;
+}
+#vermasRutinas:active , #vermasRecetas:active{
+  background-color: #85929E;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+
+
+
+/*PERFIL*/
+.perfil{
+  width: 92%;
+  margin: 3% auto;
+  background-color: var(--color2);
+  color: white;
+  margin-bottom: 25px;
+  border-radius: 25px;
+  padding: 0.5em;
+}
+.perfil a{
+  text-decoration: none;
+  color: white;
+  margin-left: 1em;
+}
+.perfil h1, .perfil p{
+  text-align: center;
+}
+.perfil img{
+  margin: 0 auto;
+  width: 35%;
+  border-radius: 50%;
+}
+
+.favoritos{
+  text-align: center;
+  width: 85%;
+  margin:2em auto;
+  background-color: var(--color2);
+  color: white;
+  border-radius: 25px;
+  padding: 0.5em 0;
+}
+.favoritos p{
+  text-align: left;
+  padding-left: 2em;
+}
+.favoritos a{
+  text-decoration: none;
+  color:white;
+}
+/*CONFIGURACION USUARIO*/
+.configuracion {
+  width: 70%;
+  margin: 25px auto;
+  background-color: var(--color2);
+  color: white;
+  margin-bottom: 25px;
+  border-radius: 25px;
+  padding: 1em ;
+  text-align: center;
+}
+.configuracion div > div{
+  width: 98%;
+}
+.configuracion label, .configuracion input{
+  width: 100%;
+  text-align: center;
+}
+
+.configuracion input[type='submit']{
+  width: 100px;
+}
+
+.configuracion input:nth-last-of-type(1){
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  margin-bottom:0.5em;
+}
+
+/*SUBIR RECETA*/
+
+.subirReceta{
+  margin: 25px auto;
+  text-align: center;
+  width: 80%;
+  background-color: var(--color2);
+  color:white;
+  border-radius: 25px;
+  padding: 1em;
+}
+.subirReceta label, .subirReceta input, .subirReceta textarea{
+  width: 90%;
+  margin:0.5em 0;
+}
+.subirReceta label{
+  font-size: 1.2em;
+}
+
+.subirReceta input[type='submit']{
+  width: 138px;
+}
+
+.subirReceta input:nth-last-of-type(1) , h1{
+  text-align: center;
+  display: block;
+  margin:auto;
+  margin-bottom:0.5em;
+}
+
+/*SUBIR RUTINA 1*/
+.subirRutina{
+  width: 80%;
+  margin:25px auto;
+  background-color: var(--color2);
+  color:white;
+  border-radius: 25px;
+  text-align: center;
+  padding: 1em;
+}
+
+.subirRutina label,.subirRutina input , .subirRutina select, .subirRutina textarea{
+  width: 90%;
+}
+
+.subirRutina input[type='submit']{
+  width: 138px;
+}
+
+.subirRutina input:nth-last-of-type(1){
+  text-align: center;
+  display: block;
+  margin:auto;
+  margin-bottom:0.5em;
+}
+
+/*SUBIR RUTINA 2*/
+
+.cajas{
+  background-color: #EAF2F8;
+  border: 1px solid red;
+  padding:12px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.subirRutina2 h1{
+  text-align: center;
+}
+.subirRutina2 p{
+  flex-grow: 1;
+}
+.subirRutina2 p:first-child{
+  height: 20px;
+}
+.subirRutina2 #descripcion{
+  flex-grow: 150;
+}
+.subirRutina2 figure{
+  flex-grow: 1;
+}
+
+.subirRutina2 img{
+  width:100%;
+  height: 100px;
+}
+
+.subirRutina2 input[type='submit']{
+  width: 100px;
+}
+
+.subirRutina2 input:nth-last-of-type(1) , h1{
+  text-align: center;
+  display: block;
+  margin:auto;
+  margin-bottom:0.5em;
+}
+.cajas > span{
+  margin-bottom: 0px;
+}
+/*RECETA SOLO 1*/
+.receta{
+  margin: 0 auto;
+  text-align: center;
+  width: 90%;
+}
+.receta input{
+  position: absolute;
+  left: -10000px;
+}
+.receta img{
+  cursor: pointer;
+  width: 100%;
+}
+
+.receta .icono figure{
+  margin-top:0;
+  width: 12%;
+  margin: 0 auto;
+}
+.receta .icono label{
+  display: flex;
+  width: 100%;
+}
+.receta .icono{
+  margin: 1em auto;
+  display: flex;
+
+}
+
+/*RUTINA SOLO 1*/
+.rutina {
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+}
+.rutina .rutinaCabecera{
+  padding: 1em;
+}
+.rutina input{
+  position: absolute;
+  left: -10000px;
+}
+.rutina img{
+  cursor: pointer;
+  width: 100%;
+}
+.rutina .icono figure{
+  margin-top:0;
+  width: 12%;
+  margin: 0 auto;
+}
+.rutina .icono label{
+  display: flex;
+  margin: 0 auto;
+  text-align: center;
+
+}
+.rutina .icono{
+  margin: 1em auto;
+  display: flex;
+}
+.ejercicio{
+  border:1px solid red;
+}
+
+.rutinaCabecera{
+  text-align: center;
+}
+
+/*LOGIN*/
+.login {
+	display: inline-block;
+  text-align: center;
+  width: 100%;
+  height: 40%;
+  padding-top: 5%;
+	margin:4em auto;
+
+}
+
+.login input[type=text], .login input[type=password]{
+	margin: 0 auto;
+}
+
+#registrate,#olvidadoContraseña{
+	text-decoration: none;
+	color: black;
+	margin:0 auto;
+}
+
+/*REGISTRATE*/
+.registro{
+  background-color: var(--color2);
+  color:white;
+  border-radius: 25px;
+  text-align: center;
+  margin: 25px auto;
+  width: 80%;
+  padding:1em;
+}
+
+.registro label,.registro input,.registro textarea{
+  width: 90%;
+  margin:0.5em 0;
+}
+.registro label{
+  font-size: 1.2em;
+}
+.registro textarea{
+  height: 50px;
+}
+.registro input[type='submit']{
+  width: 138px;
+}
+
+.registro input:nth-last-of-type(1) , h1{
+  text-align: center;
+  display: block;
+  margin:auto;
+  margin-bottom:0.5em;
+}
+
+/*RECUPERA PASS*/
+.recuperaPass{
+  margin:2em auto;
+  text-align: center;
+  width: 80%;
+  padding: 1em;
+  background-color: var(--color2);
+  color:white;
+  border-radius: 25px;
+}
+/*ADMIN*/
+.tablas{
+  text-align: center;
+
+}
+.tablas table{
+  margin:2em auto;
+}
+.tablas a{
+  text-decoration: none;
+  color: var(--colorTexto1);
+}
+.tablas img{
+  width: 50px;
+  height: 55px;
+  color:var(--colorTexto1);
+}
+.tablas thead{
+  background-color: var(--color3);
+  color:white;
+}
+.tablas tbody{
+  background-color: var(--colorTabla1);
+}
+
+.tablas tbody tr:nth-child(odd){
+  background-color: var(--colorTabla2);
+}
+
+/*QUIENES SOMOS*/
+.quienesSomos{
+  margin: 0 auto;
+  width: 80%;
+}
+
+/*CALCULADOR IMC*/
+.padreCalculadora{
+  width: 90%;
+  margin:0 auto;
+  text-align: center;
+}
+
+.calculadora{
+  width: 90%;
+  margin:0 auto;
+  background-color: var(--color2);
+  color: white;
+  border-radius: 25px;
+  text-align: center;
+  padding: 0.5em;
+}
+.medio img{
+  width: 100%;
+}
+
+/*Página Error*/
+.errorBuscador img{
+  width: 80%;
+}
+
+.errorBuscador p{
+  margin: 0 auto;
+  text-align: center;
+}
+.errorBuscador img{
+  width: 30%;
+  margin:1em auto;
+}
+/*MEDIAS QUERYS*/
+@media only screen and (min-width: 767px) {
+
+/* BUSCADOR */
+  .buscador{
+    display: flex;
+    flex-direction: row;
+  }
+  .buscador select{
+    flex-basis: 20%;
+    height: 35px;
+    margin-top:12px;
+  }
+
+  .buscador p{
+    flex-basis: 60%;
+  }
+
+  .buscador p input{
+    text-align: center;
+    width: 90%;
+  }
+  .buscador > input{
+    flex-basis: 20%;
+    height: 35px;
+    margin-top:12px;
+  }
+
+  /*agregado por Steven*/
+  /*PRINCIPAL*/
+  .encabezado{
+    margin:0 auto;
+    height: 60px;
+    width: 90%;
+  }
+/* RUTINAS Y RECETAS - PRINCIPAL*/
+  #rutinas, #recetas{
+    width: 100%;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:space-between;
+  }
+  #recetas figure{
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+  #recetas figure a img{
+    width: 100%;
+  }
+  #recetas figure a img:hover{
+    transform: scale(1.18);
+  }
+  .rutina , .receta{
+    flex-basis: 32.7%;
+    margin:0.15em 0.10em;
+  }
+
+  .receta{
+    display: flex;
+    flex-direction: column;
+  }
+  .rutinas{
+    background-color: var(--color4);
+  }
+  .rutina{
+    background-color: white;
+    border:none;
+  }
+  .receta:nth-last-of-type(1) {
+    border-bottom:solid 2px var(--color1);
+  }
+
+  /*algo nuevo por steven*/
+  .receta figure a img{
+    width: 100px;
+    height: 200px;
+  }
+
+
+  /* REGISTRATE*/
+  .registro{
+    width: 60%;
+  }
+  .registro label,.registro input,.registro textarea{
+    width: 90%;
+    margin:0.5em;
+  }
+  /*PERFIL*/
+  .perfil{
+    width: 100%;
+  }
+  /*CONFIGURACION PERFIL*/
+  .configuracion{
+    width: 100%;
+  }
+  /*SUBIR RECETA*/
+
+  /*SUBIR RUTINA 1*/
+
+  /*SUBIR RUTINA 2*/
+
+  .subirRutina2{
+    width: 100%;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:space-between;
+  }
+  .subirRutina2 .cajas{
+    flex-basis: 20%;
+    margin: 1em auto;
+  }
+
+  #subirRutinaBtn{
+    margin:25px auto;
+    width: 100%;
+    text-align: center;
+  }
+
+  /*RECETA*/
+  .receta {
+    width: 80%;
+    margin:0 auto;
+  }
+  .receta h2{
+    height: 50px;
+  }
+  .recetas figure {
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+  .receta img{
+    width: 100%;
+  }
+  .recetas img:hover{
+    transform: scale(1.5);
+  }
+  .receta .icono figure{
+    margin-top:0;
+    width: 28%;
+    margin: 0 auto;
+  }
+  /*MUCHAS RECETAS*/
+  .muchasrecetas img{
+    width: 100%;
+    height: 200px;
+  }
+
+  /*RUTINA*/
+  .rutina {
+    width: 80%;
+    margin:0 auto;
+  }
+  .rutina img{
+    width: 50%;
+  }
+  .ejerGlobal{
+    margin: 0 auto;
+    width: 70%;
+  }
+  .ejerGlobal .ejercicio{
+    margin: 25px ;
+  }
+  .rutina .icono figure{
+    margin-top:0;
+    width: 12%;
+    margin: 0 auto;
+  }
+
+}
+@media only screen and (min-width: 1200px) {
+
+  /*ADMIN*/
+  .tablas table{
+    width: 80%;
+  }
+  .tablas thead th{
+    padding: 1em;
+  }
+  .ocultar{
+    display:table-cell;
+  }
+  /*PERFIL*/
+  .perfil{
+    width: 100%;
+  }
+  .favoritos{
+    width: 100%;
+  }
+  /*RECETA*/
+  .receta{
+    margin:0 auto;
+  }
+  /*RUTINA*/
+  .rutina{
+   margin: 0.5vh auto;
+  }
+  /*CONFIGURACION*/
+  .configuracion{
+    width: 100%;
+  }
+}

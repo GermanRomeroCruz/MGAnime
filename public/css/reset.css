@@ -1,0 +1,36 @@
+:root{
+  --color1: #18121E; /*Navy Blue*/
+  --color2: #233237; /*Gun Metal*/
+  --color3: #984B43; /*Rusty Red*/
+  --color4: #EAC67A; /*Warm Yellow*/
+  --colorTexto1: black;
+  --colorTabla1: #BDBDBD;
+  --colorTabla2: #EEEEEE;
+
+}
+/*agregada el height al 100% porque no llegaba hasta abajo si era corta la pag*/
+body,html{
+  height: 100%;
+}
+body{
+  margin:0;
+  padding:0;
+  display: flex;
+  flex-direction: column;
+}
+
+.scroll {
+  position: fixed;
+  right: 40px;
+  bottom: 100px;
+  width: 50px;
+  display: none;
+  cursor: pointer;
+}
+
+.scroll:hover {
+  background-color: var(--colorScroll);
+}
+.visible {
+  display: block;
+}

@@ -1,15 +1,15 @@
 <?php
 
 $config = [
-  'site' => 'Proyecto TFG',
-  'title' => 'Ponte En Forma',
+  'site' => 'MGAnime',
+  'title' => 'MGAnime',
   'content' => 'Estructura de proyecto web',
   'content_text' => 'Información sacada del config',
   'db_engine' => 'mysql',
   //'db_file' => 'resources/test.sqlite3',
-  'db_user' => 'admintfg',
-  'db_pass' => 'admintfg',
-  'db_name' => 'tfg',
+  'db_user' => 'adminMGAnime',
+  'db_pass' => 'adminMGAnime',
+  'db_name' => 'MGAnime',
   'ruta_defecto' => '/principal.php',
   'mail_password' => 'cámbiala',
   'mail_correo' => 'miCorreo',

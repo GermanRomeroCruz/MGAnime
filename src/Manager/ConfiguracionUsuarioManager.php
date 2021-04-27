@@ -8,7 +8,7 @@ class ConfiguracionUsuarioManager {
     $parametros = $campo;
     array_push($parametros,$id);
     $db = DWESBaseDatos::obtenerInstancia();
-    $db->ejecuta("UPDATE USUARIO SET NOMBRE = ? WHERE ID = ? " , $parametros);
+    $db->ejecuta("UPDATE USUARIO SET NOMBRE = ? WHERE ID_USU = ? " , $parametros);
   }
 
   // modificar la contraseña
@@ -16,7 +16,7 @@ class ConfiguracionUsuarioManager {
     $parametros [] = $campo;
     array_push($parametros,$id);
     $db = DWESBaseDatos::obtenerInstancia();
-    $db->ejecuta("UPDATE USUARIO SET PASS = ? WHERE ID = ? ", $parametros);
+    $db->ejecuta("UPDATE USUARIO SET PASS = ? WHERE ID_USU = ? ", $parametros);
   }
 
   // modificar la contraseña para el recuperar password.php
@@ -31,14 +31,14 @@ class ConfiguracionUsuarioManager {
     $parametros = $campo;
     array_push($parametros,$id);
     $db = DWESBaseDatos::obtenerInstancia();
-    $db->ejecuta("UPDATE USUARIO SET EMAIL = ? WHERE ID = ? " ,$parametros);
+    $db->ejecuta("UPDATE USUARIO SET EMAIL = ? WHERE ID_USU = ? " ,$parametros);
   }
   // modificar la descripcion
   public static function updateDescripcion($id,...$campo){
     $parametros = $campo;
     array_push($parametros,$id);
     $db = DWESBaseDatos::obtenerInstancia();
-    $db->ejecuta("UPDATE USUARIO SET DESCRIPCION = ? WHERE ID = ? " , $parametros);
+    $db->ejecuta("UPDATE USUARIO SET DESCRIPCION = ? WHERE ID_USU = ? " , $parametros);
   }
 
   // modificar la Imagen
@@ -46,7 +46,7 @@ class ConfiguracionUsuarioManager {
     $parametros = $campo;
     array_push($parametros,$id);
     $db = DWESBaseDatos::obtenerInstancia();
-    $db->ejecuta("UPDATE USUARIO SET IMAGEN = ? WHERE ID = ? " ,$parametros);
+    $db->ejecuta("UPDATE USUARIO SET IMAGEN = ? WHERE ID_USU = ? " ,$parametros);
   }
 
 }

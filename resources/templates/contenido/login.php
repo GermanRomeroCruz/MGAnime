@@ -7,7 +7,7 @@ if( count($_POST) > 0 ){
       $datos = UsuarioManager::autentificado($info['USUARIO']);
 
       if( $datos != null && password_verify($info['CONTRASEÑA'], $datos['PASS']) ){
-        $id = $datos['ID'];
+        $id = $datos['ID_USU'];
         $_SESSION['autentificado'] = true;
         $_SESSION['ID'] = $id;
         //consulta para sacar el rol de dicho usuario
@@ -17,7 +17,7 @@ if( count($_POST) > 0 ){
         if( isset($_POST['recuerdame']) && $_POST['recuerdame'] == true ){
           //generamos un token y lo convertimos a hash
           $token = TokenManager::getToken();
-          //insertamos el token en la base de datos
+          //insertamos el token en la base de datos 
           CookieManager::insert($token, $id);
           //se establece la cookie de recuerdame para una semana
           setcookie('recuerdame', $token, time()+(24*60*60*7));

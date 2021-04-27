@@ -19,13 +19,14 @@ if(count($usuario) != 0){
 <header>
   <div id="general">
     <div id="imagenMenu">
+
       <h2 >Bienvenido a </h2>
       <a href="principal.php">
       <img src="imagenes/logo.png" alt="">
     </a>
     </div>
     <div id="texto">
-      <h1>PONTE EN FORMA</h1>
+      <h1>MGAnime</h1>
       <?php if($mensaje == true){?>
         <div class="bienvenido">
           <p><a href="perfil.php"><img src="<?= $usuario['IMAGEN']?>" alt=""></a></p>

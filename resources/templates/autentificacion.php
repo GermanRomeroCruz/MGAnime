@@ -2,6 +2,7 @@
 
 session_start();
 global $ROOT;
+
 $id_user = "";
 //cerrar sesion
 if(isset($_GET['cerrarSesion']) && $_GET['cerrarSesion'] == true){

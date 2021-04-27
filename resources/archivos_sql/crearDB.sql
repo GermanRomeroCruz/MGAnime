@@ -1,10 +1,10 @@
 
 
 /*DROP DATABASE tfg;*/
-CREATE DATABASE animeMG;
-use animeMG;
-CREATE USER 'adminanimeMG'@'localhost' IDENTIFIED BY 'adminanimeMG';
-GRANT ALL PRIVILEGES ON animeMG.* TO 'adminanimeMG'@'localhost';/* WITH GRANT OPTION*/;
+CREATE DATABASE MGAnime;
+use MGAnime;
+CREATE USER 'adminMGAnime'@'localhost' IDENTIFIED BY 'adminMGAnime';
+GRANT ALL PRIVILEGES ON MGAnime.* TO 'adminMGAnime'@'localhost';/* WITH GRANT OPTION*/;
 
 
 

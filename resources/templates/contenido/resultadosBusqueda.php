@@ -28,13 +28,13 @@
   //Si la cadena de busqueda y el select son distintas de cadena vácia se meté
   if ($busqueda != '' && $selectBuscador != ''){
 
-    if($selectBuscador == 'nombre_receta'){
-      $cadbusca = RecetaManager::getNombreSolo($busqueda);
-      $clase = "receta";
+    if($selectBuscador == 'nombre_autor'){
+      $cadbusca = PublicacionManager::getAutorSolo($busqueda);
+      $clase = "autor";
     }
-    if($selectBuscador == 'nombre_rutina'){
-      $cadbusca = RutinaManager::getNombreSolo($busqueda);
-      $clase = "rutina";
+    if($selectBuscador == 'nombre_publicacion'){
+      $cadbusca = PublicacionManager::getTituloSolo($busqueda);
+      $clase = "publicacion";
     }
   //En caso contrario te redirige a el error
   }else{
@@ -44,14 +44,14 @@
 
 ?>
 
-<?php if($clase == "rutina") {?>
-<h1>Rutinas:</h1>
-<div id="rutinas"class="rutinas">
+<?php if($clase == "publicacion") {?>
+<h1>publicacion:</h1>
+<div id="publicacion"class="rutinas">
   <?php foreach ($cadbusca  as $fila) { ?>
-    <div id="rutina" class="rutina" data-id="<?=$fila['ID']?> ">
-    <h2><a href="rutina.php?id=<?= $fila['ID']?>"><?= $fila['NOMBRE']?></a></h2>
-    <p class="negrita">Dificultad:</p>
-    <p><span class="negrita">Dificultad:</span> <?= $fila['DIFICULTAD']?></p>
+    <div id="publicacion" class="rutina" data-id="<?=$fila['ID_PUBLI']?> ">
+    <h2><a href="publicacion.php?id=<?= $fila['ID_PUBLI']?>"><?= $fila['TITULO']?></a></h2>
+    <p class="negrita">Autor:</p>
+    <p><span class="negrita">Autor:</span> <?= $fila['AUTOR']?></p>
     <p class="negrita">Descripcion:</p>
     <p> <br><?= $fila['DESCRIPCION']?></p>
     </div>
@@ -59,15 +59,16 @@
 </div>
 <?php } ?>
 
-<?php if($clase == "receta") {?>
+<?php if($clase == "autor") {?>
 <h1>Recetas:</h1>
-<div id="recetas" class="recetas">
+<div id="autor" class="recetas">
   <?php foreach ($cadbusca as $fila) { ?>
-    <div id="receta" class="receta" data-id="<?=$fila['ID']?> ">
-    <h2><a href="receta.php?id=<?= $fila['ID']?>"><?= $fila['NOMBRE']?></a></h2>
+    <div id="autor" class="receta" data-id="<?=$fila['ID_PUBLI']?> ">
+    <h2><a href="receta.php?id=<?= $fila['ID_PUBLI']?>"><?= $fila['AUTOR']?></a></h2>
     <figure><img src="<?=$fila['IMAGEN'] ?>"></figure>
-    <p class="negrita">Tiempo:</p>
-    <p><?= $fila['TIEMPO']?></p>
+    <h2><a href="publicacion.php?id=<?= $fila['ID_PUBLI']?>"><?= $fila['TITULO']?></a></h2>
+    <p class="negrita">Descripcion:</p>
+    <p> <br><?= $fila['DESCRIPCION']?></p>
     </div>
   <?php } ?>
 </div>

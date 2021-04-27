@@ -60,6 +60,8 @@
   }
 
 ?>
+
+
 <div class="recuperaPass">
   <?php if ($tokenCorrecto){ ?>
       <h2>Recupera tu contraseña</h2>

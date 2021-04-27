@@ -47,14 +47,14 @@
       $http = 'http://localhost:9000/';
       $mail->IsHTML(true);
       $mail->AddAddress($correo);    //destinatario
-      $mail->SetFrom($datosEmail['correo'], "Ponte en Forma");                    // quien envia el correo
+      $mail->SetFrom($datosEmail['correo'], "MGAnime");                    // quien envia el correo
       //$mail->AddReplyTo("reply-to-email@domain", "reply-to-name");          para añadir otro destinatario
       //$mail->AddCC("cc-recipient-email@domain", "cc-recipient-name");       con copia oculta
 
-      $mail->Subject = "Ponte en Forma- Recuperar Password";                               //cabecera
+      $mail->Subject = "MGAnime - Recuperar Password";                               //cabecera
       $content =
-        "<h1>Ponte en Forma</1>".
-        "<h4>Tu rutina diaria te espera</h4>" .
+        "<h1>MGAnime</1>".
+        "<h4>Las mejores opiniones sobre el mundo anime y manga te espera</h4>" .
         "<p>Hemos recibido una peticion para cambiar la contrase&#241;a,
           haga click en el siguiente enlace y sera redirigido
         </p>" .

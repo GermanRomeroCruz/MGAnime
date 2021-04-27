@@ -9,8 +9,8 @@ class CookieManager implements IDWESEntidadManager
   public static function getById($cookie){
 
     $db = DWESBaseDatos::obtenerInstancia();
-    $db->ejecuta("SELECT ID_USUARIO
-                  FROM COOKIESESION
+    $db->ejecuta("SELECT ID_USUARIO_COOKIE
+                  FROM COOKIE_SESION
                   WHERE COOKIE = ?",
                   $cookie);
     $datos = $db->obtenDatos();
@@ -19,7 +19,7 @@ class CookieManager implements IDWESEntidadManager
 
   public static function insert(...$campos){
     $db = DWESBaseDatos::obtenerInstancia();
-    $db->ejecuta("INSERT INTO COOKIESESION (COOKIE, ID_USUARIO)
+    $db->ejecuta("INSERT INTO COOKIE_SESION (COOKIE, ID_USUARIO_COOKIE)
                   VALUES (?, ?)", $campos);
     return $db->obtenDatos();
   }
@@ -30,7 +30,7 @@ class CookieManager implements IDWESEntidadManager
   public static function delete($id){
 
     $db = DWESBaseDatos::obtenerInstancia();
-    $db->ejecuta("DELETE FROM COOKIESESION
-                  WHERE ID_USUARIO =  ?", $id);
+    $db->ejecuta("DELETE FROM COOKIE_SESION
+                  WHERE ID_USUARIO_COOKIE =  ?", $id);
   }
 }

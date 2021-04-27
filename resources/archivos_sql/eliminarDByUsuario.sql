@@ -1,4 +1,4 @@
-DROP DATABASE animeMG;
+DROP DATABASE MGAnime;
 
-DROP USER 'adminanimeMG'@'localhost';
+DROP USER 'adminMGAnime'@'localhost';
 

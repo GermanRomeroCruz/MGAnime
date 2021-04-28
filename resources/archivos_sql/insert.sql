@@ -20,30 +20,6 @@ INSERT INTO USUARIO (NOMBRE,PASS,EMAIL,IMAGEN,ROL)
  ('Scarlett','$2y$10$nbm5Inx.l3F/ik5RuZa0Qu49NaFtC5i6nyYvCFLcCye6xh6GeoV3O','scarlett@gmail.com',null,'USER');/*1234*/
 
 
-INSERT INTO COMENTARIO (CONTENIDO, FECHA)
- VALUES 
- ('Es la mejor serie que he visto en mi vida','2021/04/11'),
- ('Ni fu ni fa','2021/04/01'),
- ('No podía pasar sin ver esta','2021/04/06'),
- ('La peor decision que pude tomar','2021/04/08'),
- ('Para pegarme un tiro','2021/04/02'),
- ('Creía que daría para más','2021/04/13'),
- ('La recomiendo un montón','2021/04/12'),
- ('La trama empezó bien, pero luego...','2021/04/20'),
- ('Deberían ponerle un poco más de acción','2021/04/24'),
- ('Estoy muy feliz con el final','2021/04/01'),
- ('Deberían hacer otra temporada más','2021/04/15'),
- ('Creo que hasta yo haría una serie mejor','2021/04/24'),
- ('Sin duda me la volvería a ver','2021/04/24'),
- ('Vine por una review y me encantó','2021/04/22'),
- ('Me encanta el ending','2021/04/16'),
- ('¿Quién más quiere otra temporada?','2021/04/17'),
- ('No me puedo creer como han manejado la trama','2021/04/15'),
- ('Capaz y la recomiendo y todo','2021/04/09'),
- ('Tiempo bien invertido','2021/04/04'),
- ('Me encanta todo lo que saca este autor','2021/04/12');
-
-
  INSERT INTO PUBLICACIONES (TITULO, AUTOR,  IMAGEN, DESCRIPCION, CATEGORIA)
  VALUES
  ('Hellsing', 'Oki', null, 'Un vampiro que caza todo','Vampiros'),
@@ -77,18 +53,75 @@ INSERT INTO COMENTARIO (CONTENIDO, FECHA)
  ('Kuroshitsuji', 'Toboso, Yana', null, 'Escondida en la campiña inglesa se encuentra la ominosa mansión de los Phantomhives, una familia que se ha establecido como la fría y despiadada "Reina del perro guardián", así como la cabeza de la clandestinidad criminal de Londres.','Sobrenatural'),
  ('Kimi no Na wa', ' Shinkai, Makoto, Kotone, Ranmaru', null, 'Mitsuha Miyamizu es una estudiante de secundaria que vive en la ciudad rural de Itomori. Anhela una vida en Tokio porque está harta de vivir en el campo.','Romance');
 
+INSERT INTO COMENTARIO (CONTENIDO, FECHA, ID_COMENTARIO_USUARIO, ID_COMENTARIO_PUBLI)
+ VALUES 
+ ('Es la mejor serie que he visto en mi vida','2021-04-11 11:00:00',1,1),
+ ('Ni fu ni fa','2021-04-01 11:10:00',2,1),
+ ('No podía pasar sin ver esta','2021-04-06 11:20:00',1,2),
+ ('La peor decision que pude tomar','2021-04-08 11:30:00',3,3),
+ ('Para pegarme un tiro','2021-04-02 11:40:00',4,5),
+ ('Creía que daría para más','2021-04-13 11:50:00',5,4),
+ ('La recomiendo un montón','2021-04-12 12:00:00',6,7),
+ ('La trama empezó bien, pero luego...','2021-04-20 12:10:00',7,6),
+ ('Deberían ponerle un poco más de acción','2021-04-24 12:20:00',8,8),
+ ('Estoy muy feliz con el final','2021-04-01 12:30:00',9,7),
+ ('Deberían hacer otra temporada más','2021-04-15 12:40:00',10,8),
+ ('Creo que hasta yo haría una serie mejor','2021-04-24 12:50:00',11,16),
+ ('Sin duda me la volvería a ver','2021-04-24 13:00:00',12,12),
+ ('Vine por una review y me encantó','2021-04-22 13:10:00',13,11),
+ ('Me encanta el ending','2021-04-16 13:20:00',14,15),
+ ('¿Quién más quiere otra temporada?','2021-04-17 13:30:00',15,13),
+ ('No me puedo creer como han manejado la trama','2021-04-15 13:40:00',15,14),
+ ('Capaz y la recomiendo y todo','2021-04-09 13:50:00',1,16),
+ ('Tiempo bien invertido','2021-04-04 01:00:00',2,17),
+ ('Me encanta todo lo que saca este autor','2021-04-12 01:10:00',3,18),
+ ('Es la mejor serie que he visto en mi vida','2021-04-11 01:20:00',4,19),
+ ('Ni fu ni fa','2021-04-01 01:30:00',5,20),
+ ('No podía pasar sin ver esta','2021-04-06 01:40:00',6,21),
+ ('La peor decision que pude tomar','2021-04-08 01:50:00',7,22),
+ ('Para pegarme un tiro','2021-04-02 02:00:00',8,25),
+ ('Creía que daría para más','2021-04-13 02:10:00',9,24),
+ ('La recomiendo un montón','2021-04-12 02:20:00',10,23),
+ ('La trama empezó bien, pero luego...','2021-04-20 02:30:00',11,26),
+ ('Deberían ponerle un poco más de acción','2021-04-24 02:40:00',12,28),
+ ('Estoy muy feliz con el final','2021-04-01 02:50:00',13,27),
+ ('Deberían hacer otra temporada más','2021-04-15 03:00:00',14,29),
+ ('Creo que hasta yo haría una serie mejor','2021-04-24 03:10:00',15,30),
+ ('Sin duda me la volvería a ver','2021-04-24 03:20:00',14,11),
+ ('Es la mejor serie que he visto en mi vida','2021-04-11 03:30:00',1,21),
+ ('Ni fu ni fa','2021-04-01 03:40:00',2,11),
+ ('No podía pasar sin ver esta','2021-04-06 03:50:00',1,12),
+ ('La peor decision que pude tomar','2021-04-08 04:00:00',3,13),
+ ('Para pegarme un tiro','2021-04-02 04:10:00',4,15),
+ ('Creía que daría para más','2021-04-13 04:20:00',5,14),
+ ('La recomiendo un montón','2021-04-12 04:30:00',6,17),
+ ('La trama empezó bien, pero luego...','2021-04-20 04:40:00',7,16),
+ ('Deberían ponerle un poco más de acción','2021-04-24 04:50:00',8,18),
+ ('Estoy muy feliz con el final','2021-04-01 05:00:00',9,17),
+ ('Deberían hacer otra temporada más','2021-04-15 05:10:00',10,28),
+ ('Creo que hasta yo haría una serie mejor','2021-04-24 05:20:00',11,26),
+ ('Sin duda me la volvería a ver','2021-04-24 05:30:00',12,22),
+ ('Vine por una review y me encantó','2021-04-22 05:40:00',13,21),
+ ('Me encanta el ending','2021-04-16 05:50:00',14,15),
+ ('¿Quién más quiere otra temporada?','2021-04-17 06:00:00',15,23),
+ ('No me puedo creer como han manejado la trama','2021-04-15 06:10:00',1,24),
+ ('Capaz y la recomiendo y todo','2021-04-09 06:20:00',1,26),
+ ('Tiempo bien invertido','2021-04-04 06:30:00',2,27),
+ ('Me encanta todo lo que saca este autor','2021-04-12 06:40:00',3,28),
+ ('Es la mejor serie que he visto en mi vida','2021-04-11 06:50:00',4,29),
+ ('Ni fu ni fa','2021-04-01 07:00:00',5,30),
+ ('No podía pasar sin ver esta','2021-04-06 07:10:00',6,11),
+ ('La peor decision que pude tomar','2021-04-08 07:20:00',7,2),
+ ('Para pegarme un tiro','2021-04-02 07:20:00',8,5),
+ ('Creía que daría para más','2021-04-13 07:30:00',9,4),
+ ('La recomiendo un montón','2021-04-12 07:40:00',10,3),
+ ('La trama empezó bien, pero luego...','2021-04-20 07:50:00',11,6),
+ ('Deberían ponerle un poco más de acción','2021-04-24 08:00:00',12,8),
+ ('Estoy muy feliz con el final','2021-04-01 08:10:00',13,7),
+ ('Deberían hacer otra temporada más','2021-04-15 08:20:00',14,9),
+ ('Creo que hasta yo haría una serie mejor','2021-04-24 08:30:00',15,10),
+ ('Sin duda me la volvería a ver','2021-04-24 08:40:00',4,1);
 
- INSERT INTO COMENTARIOS_USUARIOS (ID_USUARIO_COMUSU , ID_COMENTARIO_COMUSU, ID_PUBLICACION_COMUSU)
- VALUES
- (1,1,1),
- (1,2,1),
- (2,1,2),
- (3,4,2),
- (3,3,4),
- (4,5,3),
- (4,3,5),
- (5,4,3),
- (5,1,4);
 
 
  INSERT INTO PUBLICACION_FAVORITA (ID_PUBLICACION_FAV, ID_USUARIO_FAV)

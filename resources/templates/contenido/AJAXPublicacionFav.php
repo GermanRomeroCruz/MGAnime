@@ -16,9 +16,9 @@
   //Mandamos la respuesta con la consulta de la rutina
   $res = PublicacionFavoritaManager::getByIdPublicacion($id_publicacion,$id_user);
   if($res == null){
-    $resultado = 'null';
+    $resultado = 'null,'.PublicacionFavoritaManager::getByIdPublicacionContar($id_publicacion)[0]['CUENTA'];
   }else{
-    $resultado = $res[0]['ID_PUBLI_FAV'];
+    $resultado = $res[0]['ID_PUBLI_FAV'].','.PublicacionFavoritaManager::getByIdPublicacionContar($id_publicacion)[0]['CUENTA'];;
   }
   print_r($resultado);
 }

@@ -91,12 +91,19 @@
   if($fav == null){
     $favoritos = 'null';
   }else{
-    $favoritos = $fav['ID_PUBLI_FAV'];
+    $favoritos = $fav[0]['ID_PUBLI_FAV'];
   }
+  
+    
 
 ?>
+
+
+
+
 <div class="rutina">
   <h1><?= $datosPublicacion['TITULO']?></h1>
+  <p id="cuenta">Likes: <?=PublicacionFavoritaManager::getByIdPublicacionContar($datosPublicacion['ID_PUBLI'])[0]['CUENTA']?></p>
   <div class="icono">
     <?php if ($_SESSION["ID"] != null) {
       
@@ -124,13 +131,18 @@
             </form>
           </div>
       </div>
+
   </div>
 <?php } ?>
 
   <?php foreach ($com   as $comentario) { ?>
+    <p><?=UsuarioManager::getById($comentario['ID_COMENTARIO_USUARIO'])['NOMBRE']?></p>
     <div id="rutina" class="rutina" data-id="<?=$comentario['ID_COM']?> ">
-    <a href="editarComentario.php?idCom=<?= $comentario['ID_COM']?>">Editar </a>
-    <a href="publicacion.php?id=<?=$id?>&idCom=<?= $comentario['ID_COM']?>">Eliminar </a>
+      <?php if ($_SESSION['ID'] === $comentario['ID_COMENTARIO_USUARIO']) { ?>
+        <a href="editarComentario.php?idCom=<?= $comentario['ID_COM']?>">Editar </a>
+        <a href="publicacion.php?id=<?=$id?>&idCom=<?= $comentario['ID_COM']?>">Eliminar </a>
+     <?php } ?>
+    
     <p><?= $comentario['CONTENIDO']?></p>
     <p class="negrita"> Fecha: </p>
     <p><?=$comentario['FECHA']?></p>
@@ -143,7 +155,8 @@
 
   let favorito = document.querySelector('label');
   let favoritos = <?=$favoritos?>;
-  let fav = favoritos || 'null';
+  let fav = [];
+  fav[0] = favoritos || 'null';
 
   $(favorito).click(function(){
 
@@ -154,20 +167,21 @@
       {
         url : 'AJAXPublicacionFav.php',
         type: "GET",
-        data : {"fav": fav,"id_user": id_user,"id_publicacion": id_publicaion}
+        data : {"fav": fav[0],"id_user": id_user,"id_publicacion": id_publicaion}
       })
         .done(function(data) {
-          console.log(data);
-          fav = data;
+          fav = data.trim().split(',');
           let im =  document.getElementById('imagen');
           let figcaption = document.querySelector('figcaption');
-          if (fav != 'null') {
+          if (fav[0] != 'null') {
             im.src="imagenes/favorito.png";
             figcaption.innerHTML = "Quitar de favoritos";
           }else{
             im.src="imagenes/noFav.png";
             figcaption.innerHTML = "Agregar a favoritos";
           }
+          let p =  document.getElementById('cuenta');
+          p.innerHTML = 'Likes: '+ fav[1];
         })
         .fail(function(data) {
           console.log(data);

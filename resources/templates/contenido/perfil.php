@@ -5,57 +5,36 @@
 
   $usuario = UsuarioManager::getByIdPerfil($id);
 
-  $favRutina = RutinaFavoritaManager::getAllByIdUser($id);
-  $favReceta = RecetaFavoritaManager::getAllByIdUser($id);
+  $favPublicacion = PublicacionFavoritaManager::getAllByIdUser($id);
 
-  $recetas = [];
-  $receta = false;
-  $rutina = false;
-  if(count($favRutina) != 0){
-    for ($i=0; $i < count($favRutina); $i++) {
-      $rutinas[$i]= RutinaManager::getById($favRutina[$i]['ID_RUTINA']);
+  $publicaciones = [];
+  $publicacion = false;
+  if(count($favPublicacion) != 0){
+    for ($i=0; $i < count($favPublicacion); $i++) {
+      $publicaciones[$i]= PublicacionManager::getById($favPublicacion[$i]['ID_PUBLICACION_FAV']);
     }
-    $rutina = true;
-  }
-
-  if(count($favReceta) != 0){
-    for ($i=0; $i < count($favReceta); $i++) {
-      $recetas[$i]= RecetaManager::getById($favReceta[$i]['ID_RECETA']);
-    }
-    $receta = true;
+    $publicacion = true;
   }
 ?>
-
   <div class="perfil">
     <?php foreach ($usuario  as $fila) { ?>
       <h1> <?=$fila['NOMBRE']?></h1>
       <p> <img src="<?=$fila['IMAGEN']?>" alt=""></p>
       <p class="negrita"> Correo </p>
       <p> <?=$fila['EMAIL']?> </p>
-      <p class="negrita"> Descripción </p>
-      <p><?=$fila['DESCRIPCION']?> </p>
       <p class="negrita"> Rol </p>
       <p><?=$fila['ROL']?> </p>
       <a href="configuracionUsuario.php">Editar Perfil</a>
     <?php } ?>
   </div>
 
-  <?php if($rutina == true){?>
+  <?php if($publicacion == true){?>
     <div class="favoritos">
-      <p class="negrita">Tus rutinas favoritas</p>
-
-      <?php for ($i=0; $i < count($rutinas); $i++) {?>
-            <p>-<a href="rutina.php?id=<?=$rutinas[$i]['ID']?>"><?=$rutinas[$i]['NOMBRE']?></a></p>
+      <p class="negrita">Tus publicaciones favoritas</p>
+      <?php for ($i=0; $i < count($publicaciones); $i++) {?>
+            <p>-<a href="publicacion.php?id=<?=$publicaciones[$i]['ID_PUBLI']?>"><?=$publicaciones[$i]['TITULO']?></a></p>
     <?php } ?>
     </div>
   <?php } ?>
 
-  <?php if($receta == true){?>
-    <div class="favoritos">
-      <p class="negrita">Tus recetas favoritas</p>
-
-      <?php for ($i=0; $i < count($recetas); $i++) {?>
-            <p>-<a href="receta.php?id=<?=$recetas[$i]['ID']?>"><?=$recetas[$i]['NOMBRE']?></a></p>
-    <?php } ?>
-    </div>
-  <?php } ?>
+  

@@ -6,9 +6,7 @@
      //SI es ADMIN
      if( isset($user) && $user['ROL'] === 'ADMIN'){
        $usuarios = UsuarioManager::getAll();
-       $recetas = RecetaManager::getAll();
-       $ejercicios = EjercicioManager::getAll();
-       $rutinas = RutinaManager::getAll();
+       $publicaciones = PublicacionManager::getAll();
        //Obtenemos todos los datos de la BBDD
      }
      //SINO AL INICIO
@@ -28,7 +26,6 @@
           <th>ID</th>
           <th>Nombre</th>
           <th class="ocultar">Email</th>
-          <th class="ocultar">Imagen</th>
           <th>Rol</th>
           <th>Cambiar Rol</th>
           <th>Borrar Usuario</th>
@@ -37,23 +34,22 @@
       <tbody>
     <?php foreach ($usuarios as $fila) { ?>
       <tr>
-        <td><?=$fila['ID']?></td>
+        <td><?=$fila['ID_USU']?></td>
         <td><?=$fila['NOMBRE']?></td>
         <td class="ocultar"><?=$fila['EMAIL']?></td>
-        <td class="ocultar"><?=$fila['IMAGEN']?></td>
         <td><?=$fila['ROL']?></td>
         <td>
           <?php
-                if($_SESSION['ID'] != $fila['ID']){
+                if($_SESSION['ID'] != $fila['ID_USU']){
           ?>
-          <a href="cambiarROL.php?id_usuario=<?=$fila['ID']?>">Cambiar Rol</a>
+          <a href="cambiarROL.php?id_usuario=<?=$fila['ID_USU']?>">Cambiar Rol</a>
           <?php } ?>
         </td>
         <td>
           <?php
-                if($_SESSION['ID'] != $fila['ID']){
+                if($_SESSION['ID'] != $fila['ID_USU']){
           ?>
-          <a href="borrarADMIN.php?id_usuario=<?=$fila['ID']?>"><img id="basura" src="imagenes/papelera.png"></a>
+          <a href="borrarADMIN.php?id_usuario=<?=$fila['ID_USU']?>"><img id="basura" src="imagenes/papelera.png"></a>
         <?php } ?>
       </td>
       </tr>
@@ -65,95 +61,28 @@
 
 
   <div>
-    <h2>Recetas</h2>
+    <h2>Publicación</h2>
+    <div>
+      <a href="subirPublicacion.php"><img id="basura" src="imagenes/papelera.png" alt="Editar publicacion"></a>
+    </div>
     <div>
       <div class="tablaRecetas">
     <table border="1px">
       <thead>
         <tr>
           <th>ID</th>
-          <th>Nombre</th>
-          <th class="ocultar">Descripcion</th>
-          <th class="ocultar">Tiempo</th>
-          <th class="ocultar">Imagen</th>
-          <th>Id_usuario</th>
-          <th>Borrar Receta</th>
+          <th>Título</th>
+          <th>Borrar Publicación</th>
         </tr>
       </thead>
       <tbody>
-    <?php foreach ($recetas as $fila) { ?>
+    <?php foreach ($publicaciones as $fila) { ?>
       <tr>
-        <td><?=$fila['ID']?></td>
-        <td><?=$fila['NOMBRE']?></td>
-        <td class="ocultar"><?=$fila['DESCRIPCION']?></td>
-        <td class="ocultar"><?=$fila['TIEMPO']?></td>
-        <td class="ocultar"><?=$fila['IMAGEN']?></td>
-        <td><?=$fila['ID_USUARIO_RECETA']?></td>
+        <td><?=$fila['ID_PUBLI']?></td>
+        <td><?=$fila['TITULO']?></td>
         <td>
-          <a href="borrarADMIN.php?id_receta=<?=$fila['ID']?>"><img id="basura" src="imagenes/papelera.png" alt="Borrar usuario"></a>
-        </td>
-      </tr>
-    <?php } ?>
-    </tbody>
-    </table>
-    </div>
-  </div>
-
-
-  <div> <h2>Ejercicios</h2>
-    <div>
-      <div class="tablaEjercicios">
-    <table border="1px">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Nombre</th>
-          <th class="ocultar">Grupo Muscular</th>
-          <th class="ocultar">Descripcion</th>
-          <th class="ocultar">Imagen</th>
-          <th>Borrar Receta</th>
-        </tr>
-      </thead>
-      <tbody>
-    <?php foreach ($ejercicios as $fila) { ?>
-      <tr>
-        <td><?=$fila['ID']?></td>
-        <td><?=$fila['NOMBRE']?></td>
-        <td class="ocultar"><?=$fila['GRUPOMUSCULAR']?></td>
-        <td class="ocultar"><?=$fila['DESCRIPCION']?></td>
-        <td class="ocultar"><?=$fila['IMAGEN']?></td>
-        <td>
-          <a href="borrarADMIN.php?id_ejercicio=<?=$fila['ID']?>"><img id="basura" src="imagenes/papelera.png" alt="Borrar usuario"></a>
-        </td>
-      </tr>
-    <?php } ?>
-    </tbody>
-    </table>
-    </div>
-  </div>
-
-
-
-  <div> <h2>Rutinas</h2>
-    <div>
-      <div class="tablaRutinas">
-    <table border="1px">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>ID_Rutina</th>
-          <th>ID_Ejercicio</th>
-          <th>Borrar Rutina</th>
-        </tr>
-      </thead>
-      <tbody>
-    <?php foreach ($rutinas as $fila) { ?>
-      <tr>
-        <td><?=$fila['ID']?></td>
-        <td><?=$fila['NOMBRE']?></td>
-        <td><?=$fila['DIFICULTAD']?></td>
-        <td>
-          <a href="borrarADMIN.php?id_rutina=<?=$fila['ID']?>"><img id="basura" src="imagenes/papelera.png" alt="Borrar usuario"></a>
+          <a href="editarPublicacion.php?id_publi=<?=$fila['ID_PUBLI']?>"><img id="basura" src="imagenes/papelera.png" alt="Editar publicacion"></a>
+          <a href="borrarADMIN.php?id_publi=<?=$fila['ID_PUBLI']?>"><img id="basura" src="imagenes/papelera.png" alt="Borrar"></a>
         </td>
       </tr>
     <?php } ?>

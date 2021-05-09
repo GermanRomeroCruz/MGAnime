@@ -12,19 +12,24 @@
   $datosEmail['correo']=$config['mail_correo'];
   $datosEmail['pass']=$config['mail_password'];
   $errores = [];
-  $correo = '';
+  $correoDestinatario = 'mganimetfg@gmail.com';
+  $correoSugerencia = "";
   $respuesta;
   $oculto = [];
 
   if ( count($_POST) > 0) {
     if ( isset($_POST['email']) && $_POST['email'] != null) {
-      $correo = clear_input($_POST['email']);
+      $correoSugerencia = clear_input($_POST['email']);
     }else{
       $errores['email'] = 'Introduce un correo';
     }
+    if ( isset($_POST['sugerencia']) && $_POST['sugerencia'] != null) {
+      $sugerencia = clear_input($_POST['sugerencia']);
+    }else{
+      $errores['sugerencia'] = 'Introduce una sugerencia';
+    }
     if ( $errores == null ) {
 
-      $token = TokenManager::getToken();
       //Inicializar
       $mail = new PHPMailer();
       $mail->IsSMTP();
@@ -46,31 +51,27 @@
 
       $http = 'http://localhost:9000/';
       $mail->IsHTML(true);
-      $mail->AddAddress($correo);    //destinatario
-      $mail->SetFrom($datosEmail['correo'], "Ponte en Forma");                    // quien envia el correo
+      $mail->AddAddress($correoDestinatario);    //destinatario
+      $mail->SetFrom($datosEmail['correo'], "MGAnime");                    // quien envia el correo
       //$mail->AddReplyTo("reply-to-email@domain", "reply-to-name");          para añadir otro destinatario
       //$mail->AddCC("cc-recipient-email@domain", "cc-recipient-name");       con copia oculta
 
-      $mail->Subject = "Ponte en Forma- Recuperar Password";                               //cabecera
+      $mail->Subject = "MGAnime - Sugerencia";                               //cabecera
       $content =
-        "<h1>Ponte en Forma</1>".
-        "<h4>Tu rutina diaria te espera</h4>" .
-        "<p>Hemos recibido una peticion para cambiar la contrase&#241;a,
-          haga click en el siguiente enlace y sera redirigido
-        </p>" .
-        "<a href='$http"."recuperarPassword.php?email=$correo&token=$token'>Recuperar contrase&#241;a</a>" .
-        "<br>" .
+        "<h1>MGAnime</1>".
+        "<h3>La sugerencia es de: </h3> <h4>".$correoSugerencia."</h4>" .
+        "<h3>La sugerencia es: </h3> <p>".
+        $sugerencia.
+        "</p>".
         "<p>Saludos</p>"
       ;
       //ENVIAR EMAIL
     $mail->MsgHTML($content);
     if(!$mail->Send()) {
-      $respuesta = 'Error al enviar correo para el cambio de contraseña a: '. $correo. "\nVuelva a intentarlo";
+      $respuesta = 'Error al enviar correo con su sugerencia. Vuelva a intentarlo por favor';
 
     } else {
-      TokenManager::delete($correo);
-      TokenManager::insert($correo, $token);
-      $respuesta = 'Hemos enviado un correo para recuperar la contraseña a: '. $correo;
+      $respuesta = 'Hemos enviado un correo con su solicitud, muchas gracias.';
     }
   }
   }
@@ -81,7 +82,7 @@
   <?php if( isset($respuesta) && $respuesta != null) { ?>
     <h4><?=$respuesta?></h4>
   <?php }else{ ?>
-    <form action="recuperarPass.php" method="post">
+    <form action="correoPeticiones.php" method="post">
       <label for="email">Introduce tu correo</label>
       <br>
       <input type="email" name="email" id='email'>
@@ -90,6 +91,13 @@
         <span class="error"><?=$errores['email']?></span>
         <br>
       <?php } ?>
+      <textarea name="sugerencia" rows="10" cols="50" placeholder="Introduce tu sugerencia"></textarea>
+      <br>
+      <?php if( isset($errores['email']) ) { ?>
+        <span class="error"><?=$errores['sugerencia']?></span>
+        <br>
+      <?php } ?>
+
       <input type="submit" name="enviar" value="Enviar">
 
     </form>

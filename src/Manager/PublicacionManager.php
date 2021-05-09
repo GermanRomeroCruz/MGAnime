@@ -40,7 +40,8 @@ class PublicacionManager {
                   SET TITULO = ?,
                       AUTOR = ?,
                       IMAGEN = ?,
-                      DESCRIPCION = ?
+                      DESCRIPCION = ?,
+                      CATEGORIA = ?
                   WHERE ID_PUBLI= ?",
                   $parametros);
   }

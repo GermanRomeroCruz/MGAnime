@@ -1,13 +1,13 @@
 
 <?php
 
-$datosPublicacion = PublicacionManager::verMasPublicacion(0); 
+$datosPublicacion = PublicacionManager::verMasPublicacion(0);
 
 $lista = [];
 $cuentaTotal = PublicacionFavoritaManager::contarLikes();
 foreach ($cuentaTotal as $ID_PUBLICACION_FAVORITA => $id ) {
     array_push($lista, PublicacionManager::getById($id['ID_PUBLICACION_FAV']));
-}  
+}
 
 ?>
 
@@ -24,10 +24,10 @@ foreach ($cuentaTotal as $ID_PUBLICACION_FAVORITA => $id ) {
   <input type="submit" name="buscar" value="Buscar">
 </form>
 
-
-<div id="rutinas"class="rutinas">
+<!-- Top 5 Publicaciones Con Mas Likes -->
+<div class="rutinas">
     <?php foreach ($lista   as $fila) { ?>
-      <div id="rutina" class="rutina" data-id="<?=$fila['ID_PUBLI']?> ">
+      <div class="rutina" data-id="<?=$fila['ID_PUBLI']?> ">
       <a href="publicacion.php?id=<?= $fila['ID_PUBLI']?>">
       <h2><?= $fila['TITULO']?></h2>
       <p class="negrita">Autor:</p>

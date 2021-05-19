@@ -25,7 +25,7 @@
         <h1> 
           <?=$fila['NOMBRE']?>
           <a href="configuracionUsuario.php"><i class="fas fa-user-edit text-dark"></i></a>
-          <a  title="¿Quieres borrar tu perfil?" onclick="borrar()">🗑️</a>
+          <a  title="¿Quieres borrar tu perfil?" onclick="borrar()"><i class="fas fa-trash text-dark"></i></a>
         </h1>
         <img src="<?=$fila['IMAGEN']?>" alt="" class="w-75">
         <h5 class="negrita text-center"> Correo </h5>

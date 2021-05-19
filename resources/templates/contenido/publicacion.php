@@ -125,18 +125,20 @@
         <?php }else{?>
           <label for="quitar"> <i class="fas fa-grin-stars" id="imagen"></i></label>
           <input type="checkbox" id="quitar" name="Favorito" value="Favorito" class="favorito d-none">
-        <?php }
-      }?>
-      <p id="cuenta">Likes: <?=PublicacionFavoritaManager::getByIdPublicacionContar($datosPublicacion['ID_PUBLI'])[0]['CUENTA']?></p>
+        <?php } ?>
+        <p id="cuenta">Likes: <?=PublicacionFavoritaManager::getByIdPublicacionContar($datosPublicacion['ID_PUBLI'])[0]['CUENTA']?></p>
+      <?php }?>
     </div>
   </div>
   
   
   
-  <div class="rutinaCabecera">
-    <p> <span class="negrita">Autor:</span><?= $datosPublicacion['AUTOR']?></p>
-    <p> <span class="negrita">Categoría:</span><?= $datosPublicacion['CATEGORIA']?></p>
-    <p> <span class="negrita">Descripción:</span><?= $datosPublicacion['DESCRIPCION']?></p>
+  <div class="w-100 d-flex justify-content-center mt-3">
+    <div class=" text-white rounded text-center">
+      <p> <span class="negrita">Autor: </span><?= $datosPublicacion['AUTOR']?></p>
+      <p> <span class="negrita">Categoría: </span><?= $datosPublicacion['CATEGORIA']?></p>
+      <p> <span class="negrita">Descripción: </span><?= $datosPublicacion['DESCRIPCION']?></p>
+    </div>
   </div>
    <?php if ($_SESSION["ID"] != null) { ?>
   <div class="contenedor1">

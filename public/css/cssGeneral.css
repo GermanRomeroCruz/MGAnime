@@ -67,7 +67,7 @@ crecerá para ocupar el maximo espacio del contenido*/
   display: flex;
   justify-content: center;
 }
-/*RUTINAS RECETAS - PRIN#CIPAL*/
+/*PUBLICACIONES*/
 #publicacionesPadre{
   margin-top: 4em;
 }
@@ -95,13 +95,6 @@ img{
 .titulo > a{
   color:white;
 }
-
-
-
-
-
-
-
 
 /*PERFIL*/
 .perfil{
@@ -171,177 +164,6 @@ img{
   display: block;
   margin: 0 auto;
   margin-bottom:0.5em;
-}
-
-/*SUBIR RECETA*/
-
-.subirReceta{
-  margin: 25px auto;
-  text-align: center;
-  width: 80%;
-  background-color: var(--color2);
-  color:white;
-  border-radius: 25px;
-  padding: 1em;
-}
-.subirReceta label, .subirReceta input, .subirReceta textarea{
-  width: 90%;
-  margin:0.5em 0;
-}
-.subirReceta label{
-  font-size: 1.2em;
-}
-
-.subirReceta input[type='submit']{
-  width: 138px;
-}
-
-.subirReceta input:nth-last-of-type(1) , h1{
-  text-align: center;
-  display: block;
-  margin:auto;
-  margin-bottom:0.5em;
-}
-
-/*SUBIR RUTINA 1*/
-.subirRutina{
-  width: 80%;
-  margin:25px auto;
-  background-color: var(--color2);
-  color:white;
-  border-radius: 25px;
-  text-align: center;
-  padding: 1em;
-}
-
-.subirRutina label,.subirRutina input , .subirRutina select, .subirRutina textarea{
-  width: 90%;
-}
-
-.subirRutina input[type='submit']{
-  width: 138px;
-}
-
-.subirRutina input:nth-last-of-type(1){
-  text-align: center;
-  display: block;
-  margin:auto;
-  margin-bottom:0.5em;
-}
-
-/*SUBIR RUTINA 2*/
-
-.cajas{
-  background-color: #EAF2F8;
-  border: 1px solid red;
-  padding:12px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-}
-
-.subirRutina2 h1{
-  text-align: center;
-}
-.subirRutina2 p{
-  flex-grow: 1;
-}
-.subirRutina2 p:first-child{
-  height: 20px;
-}
-.subirRutina2 #descripcion{
-  flex-grow: 150;
-}
-.subirRutina2 figure{
-  flex-grow: 1;
-}
-
-.subirRutina2 img{
-  width:100%;
-  height: 100px;
-}
-
-.subirRutina2 input[type='submit']{
-  width: 100px;
-}
-
-.subirRutina2 input:nth-last-of-type(1) , h1{
-  text-align: center;
-  display: block;
-  margin:auto;
-  margin-bottom:0.5em;
-}
-.cajas > span{
-  margin-bottom: 0px;
-}
-/*RECETA SOLO 1*/
-.receta{
-  margin: 0 auto;
-  text-align: center;
-  width: 90%;
-}
-.receta input{
-  position: absolute;
-  left: -10000px;
-}
-.receta img{
-  cursor: pointer;
-  width: 100%;
-}
-
-.receta .icono figure{
-  margin-top:0;
-  width: 12%;
-  margin: 0 auto;
-}
-.receta .icono label{
-  display: flex;
-  width: 100%;
-}
-.receta .icono{
-  margin: 1em auto;
-  display: flex;
-
-}
-
-/*RUTINA SOLO 1*/
-.rutina {
-  width: 100%;
-  margin: 0 auto;
-  text-align: center;
-}
-.rutina .rutinaCabecera{
-  padding: 1em;
-}
-.rutina input{
-  position: absolute;
-  left: -10000px;
-}
-.rutina img{
-  cursor: pointer;
-  width: 100%;
-}
-.rutina .icono figure{
-  margin-top:0;
-  width: 12%;
-  margin: 0 auto;
-}
-.rutina .icono label{
-  display: flex;
-  margin: 0 auto;
-  text-align: center;
-
-}
-.rutina .icono{
-  margin: 1em auto;
-  display: flex;
-}
-.ejercicio{
-  border:1px solid red;
-}
-
-.rutinaCabecera{
-  text-align: center;
 }
 
 /*LOGIN*/
@@ -435,32 +257,6 @@ img{
   background-color: var(--colorTabla2);
 }
 
-/*QUIENES SOMOS*/
-.quienesSomos{
-  margin: 0 auto;
-  width: 80%;
-}
-
-/*CALCULADOR IMC*/
-.padreCalculadora{
-  width: 90%;
-  margin:0 auto;
-  text-align: center;
-}
-
-.calculadora{
-  width: 90%;
-  margin:0 auto;
-  background-color: var(--color2);
-  color: white;
-  border-radius: 25px;
-  text-align: center;
-  padding: 0.5em;
-}
-.medio img{
-  width: 100%;
-}
-
 /*Página Error*/
 .errorBuscador img{
   width: 80%;
@@ -478,6 +274,64 @@ img{
 #imagen{
   font-size: 40px;
 }
+
+/*PUBLICACION*/
+#btn1 /*input[type='checkbox']*/ { display: none;  }
+
+    .contenedor1 {  margin: 1.2rem 0;  }
+    
+    
+
+    .lbl-toggle1 {
+        display: block;
+        font-weight: bold;
+        font-family: monospace;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        text-align: center;
+        padding: 1rem;
+        color: #DDD; /*gris/blanco*/
+        background: black; /*#004085;*/ /*azul oscuro*/
+        cursor: pointer;
+        border-radius: 7px;
+        transition: all 0.25s ease-out;
+    }
+
+      .lbl-toggle1:hover {  color: #5781f9; /*#FFF; blanco/gris*/ }
+
+      .lbl-toggle1::before {
+          content: ' ';
+          display: inline-block;
+          border-top: 5px solid transparent;
+          border-bottom: 5px solid transparent;
+          border-left: 5px solid currentColor;
+          vertical-align: middle;
+          margin-right: .7rem;
+          transform: translateY(-2px);
+          transition: transform .2s ease-out;
+      }
+
+  .toggle1:checked + .lbl-toggle1::before {  transform: rotate(90deg) translateX(-3px); }
+
+  .contenido-esconder1 {
+      max-height: 0px;
+      overflow: hidden;
+      transition: max-height .25s ease-in-out;
+  }
+
+  .toggle1:checked + .lbl-toggle1 + .contenido-esconder1 {  max-height: 350px;  }
+
+  .toggle1:checked + .lbl-toggle1{
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+  }
+
+  .contenido-esconder1 .contenido {
+      padding: 1rem;
+  }
+
+  .contenido-esconder1 form{  margin-bottom: 0;  }
+
 /*MEDIAS QUERYS*/
 @media only screen and (min-width: 767px) {
 
@@ -508,57 +362,12 @@ img{
     height: 35px;
   }
 
-  /*agregado por Steven*/
   /*PRINCIPAL*/
   .encabezado{
     margin:0 auto;
     height: 60px;
     width: 90%;
   }
-/* RUTINAS Y RECETAS - PRINCIPAL*/
-  #rutinas, #recetas{
-    width: 100%;
-    display:flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content:space-between;
-  }
-  #recetas figure{
-    box-sizing: border-box;
-    overflow: hidden;
-  }
-  #recetas figure a img{
-    width: 100%;
-  }
-  #recetas figure a img:hover{
-    transform: scale(1.18);
-  }
-  .rutina , .receta{
-    flex-basis: 32.7%;
-    margin:0.15em 0.10em;
-  }
-
-  .receta{
-    display: flex;
-    flex-direction: column;
-  }
-  .rutinas{
-    background-color: var(--color4);
-  }
-  .rutina{
-    background-color: white;
-    border:none;
-  }
-  .receta:nth-last-of-type(1) {
-    border-bottom:solid 2px var(--color1);
-  }
-
-  /*algo nuevo por steven*/
-  .receta figure a img{
-    width: 100px;
-    height: 200px;
-  }
-
 
   /* REGISTRATE*/
   .registro{
@@ -576,79 +385,7 @@ img{
   .configuracion{
     width: 100%;
   }
-  /*SUBIR RECETA*/
-
-  /*SUBIR RUTINA 1*/
-
-  /*SUBIR RUTINA 2*/
-
-  .subirRutina2{
-    width: 100%;
-    display:flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content:space-between;
-  }
-  .subirRutina2 .cajas{
-    flex-basis: 20%;
-    margin: 1em auto;
-  }
-
-  #subirRutinaBtn{
-    margin:25px auto;
-    width: 100%;
-    text-align: center;
-  }
-
-  /*RECETA*/
-  .receta {
-    width: 80%;
-    margin:0 auto;
-  }
-  .receta h2{
-    height: 50px;
-  }
-  .recetas figure {
-    box-sizing: border-box;
-    overflow: hidden;
-  }
-  .receta img{
-    width: 100%;
-  }
-  .recetas img:hover{
-    transform: scale(1.5);
-  }
-  .receta .icono figure{
-    margin-top:0;
-    width: 28%;
-    margin: 0 auto;
-  }
-  /*MUCHAS RECETAS*/
-  .muchasrecetas img{
-    width: 100%;
-    height: 200px;
-  }
-
-  /*RUTINA*/
-  .rutina {
-    width: 80%;
-    margin:0 auto;
-  }
-  .rutina img{
-    width: 50%;
-  }
-  .ejerGlobal{
-    margin: 0 auto;
-    width: 70%;
-  }
-  .ejerGlobal .ejercicio{
-    margin: 25px ;
-  }
-  .rutina .icono figure{
-    margin-top:0;
-    width: 12%;
-    margin: 0 auto;
-  }
+  
   .publicacion{
     flex-basis: 30%;
     margin: 0 auto;
@@ -680,9 +417,7 @@ img{
   }
 }
 @media only screen and (min-width: 1200px) {
-  .rutina{
-    width: 100%;
-  }
+  
   .grow{
     margin-top: 10em;
   }
@@ -702,14 +437,6 @@ img{
   }
   .favoritos{
     width: 100%;
-  }
-  /*RECETA*/
-  .receta{
-    margin:0 auto;
-  }
-  /*RUTINA*/
-  .rutina{
-   margin: 0.5vh auto;
   }
   /*CONFIGURACION*/
   .configuracion{

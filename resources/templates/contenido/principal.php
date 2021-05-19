@@ -12,48 +12,41 @@ foreach ($cuentaTotal as $ID_PUBLICACION_FAVORITA => $id ) {
 ?>
 
 
+    <div id="texto">
+      <?php if($mensaje == true){?> 
+        <div >
+          <a href="perfil.php" class="badge badge-dark text-decoration-none"><img src="<?=$usuario['IMAGEN']?>" alt="" style="width: 10em"></p>
+          <h3>Bienvenido/a <?= $usuario['NOMBRE']?></h3></a>
+        </div>
+      <?php }?>
+    </div>
 
-<form method="post" action="resultadosBusqueda.php" class="buscador">
-
-  <select class="" name="selectBuscador">
-    <option disabled selected value="">Elige una opción</option>
-    <option value="nombre_autor">Nombre de Autor</option>
-    <option value="nombre_publicacion">Nombre de Publicacion</option>
-  </select>
-  <p><input type="text" name="busqueda" placeholder="¿Qué quieres buscar?"> </p>
-  <input type="submit" name="buscar" value="Buscar">
-</form>
 
 <!-- Top 5 Publicaciones Con Mas Likes -->
-<div class="rutinas">
+<h1 class="titulo"> Top 5 </h1>
+<div class="display5 ">
     <?php foreach ($lista   as $fila) { ?>
-      <div class="rutina" data-id="<?=$fila['ID_PUBLI']?> ">
-      <a href="publicacion.php?id=<?= $fila['ID_PUBLI']?>">
-      <h2><?= $fila['TITULO']?></h2>
-      <p class="negrita">Autor:</p>
-      <p><?= $fila['AUTOR']?></p>
-      <p class="negrita"> Descripcion</p>
-      <p><?= $fila['DESCRIPCION']?></p>
-      </a>
+      <div class="publicaciones publicaciones5 p-3  border border-light mb-4 mt-4" data-id="<?=$fila['ID_PUBLI']?>" >
+        <a href="publicacion.php?id=<?= $fila['ID_PUBLI']?>">
+          <figure><img src="<?= $fila['IMAGEN']?>" alt=""></figure>
+          <hr>
+          <h2><?= $fila['TITULO']?></h2>
+        </a>
       </div>
     <?php } ?>
   </div>
 
-
 <!-- Publicacion-->
-<div id="rutinasPadre">
+<div id="publicacionesPadre">
   <h1 class="titulo"> Publicaciones </h1>
-  <div id="rutinas"class="rutinas">
+  <div id="publicaciones"class="publicaciones bg-dark">
     <?php foreach ($datosPublicacion   as $fila) { ?>
-
-      <div id="rutina" class="rutina" data-id="<?=$fila['ID_PUBLI']?> ">
-      <a href="publicacion.php?id=<?= $fila['ID_PUBLI']?>">
-      <h2><?= $fila['TITULO']?></h2>
-      <p class="negrita">Autor:</p>
-      <p><?= $fila['AUTOR']?></p>
-      <p class="negrita"> Descripcion</p>
-      <p><?= $fila['DESCRIPCION']?></p>
-      </a>
+      <div id="publicaciones" class="publicaciones publicacion  border border-light mb-4 mt-4 sombra" data-id="<?=$fila['ID_PUBLI']?> ">
+        <a href="publicacion.php?id=<?= $fila['ID_PUBLI']?>">
+          <figure><img src="<?= $fila['IMAGEN']?>" alt=""></figure>
+          <hr>
+          <h2 class="negrita text-light"><?= $fila['TITULO']?></h2>
+        </a>
       </div>
     <?php } ?>
   </div>
@@ -63,13 +56,13 @@ foreach ($cuentaTotal as $ID_PUBLICACION_FAVORITA => $id ) {
 
 <script type="text/javascript">
 
-  let rutinas = document.getElementsByClassName('rutina');
-  let contenedorRutinas = document.getElementById('rutinasPadre');
+  let publicaciones = document.getElementsByClassName('publicaciones');
+  let contenedorPublicaciones = document.getElementById('publicacionesPadre');
 
   $('#vermasPublicacion').click(function(){
 
-    let ultima = rutinas.length-1;
-    let publicacionUltima = document.getElementsByClassName('rutina')[ultima].getAttribute('data-id');
+    let ultima = publicaciones.length-1;
+    let publicacionUltima = document.getElementsByClassName('publicaciones')[ultima].getAttribute('data-id');
     let url='respuestaVerMasPublicacion.php?idPublicacion='+publicacionUltima;
     $.ajax(
     {
@@ -91,9 +84,10 @@ foreach ($cuentaTotal as $ID_PUBLICACION_FAVORITA => $id ) {
   });
 
   function pintarMasPublicacion(datosJSON){
+    console.log(datosJSON);
 
-    let divPublicacion = document.getElementById('rutinas');
-    let btn = document.getElementById('vermasRutinas');
+    let divPublicacion = document.getElementById('publicaciones');
+    let btn = document.getElementById('vermasPublicaciones');
 
     for (let i = 0; i < datosJSON.length; i++) {
       divPublicacion.appendChild(crearPublicacion(datosJSON[i]));
@@ -102,22 +96,24 @@ foreach ($cuentaTotal as $ID_PUBLICACION_FAVORITA => $id ) {
 
   function crearPublicacion(publicacionJSON){
 
-    let divRutina = crearElemento('div',{id:'rutina',class:'rutina','data-id':publicacionJSON.ID_PUBLI},null);
-    let h2 = crearElemento('h2',null,null);
-    let a = crearElemento('a',{href:'publicacion.php?id='+ publicacionJSON.ID_PUBLI},publicacionJSON.TITULO);
-    let pTituloAutor = crearElemento('p',{'class':'negrita'},'Autor: ');
-    let pTituloDescripcion = crearElemento('p',{'class':'negrita'},'Descripcion: ');
-    let pAutor = crearElemento('p',null,publicacionJSON.AUTOR);
-    let pDescripcion = crearElemento('p',null,publicacionJSON.DESCRIPCION);
+    let divPublicaciones = crearElemento('div',{id:'publicaciones',class:'publicaciones publicacion border border-light mb-4 mt-4 sombra','data-id':publicacionJSON.ID_PUBLI},null);
+    
+    let a = crearElemento('a',{href:'publicacion.php?id='+ publicacionJSON.ID_PUBLI},null);
+    let figure = crearElemento('figure',null,null);
+    let img = crearElemento('img',{src:publicacionJSON.IMAGEN},null);
+    let hr = crearElemento('hr',null,null);
+    let h2 = crearElemento('h2',{'class':'negrita text-light'},publicacionJSON.TITULO);
 
-    h2.appendChild(a);
-    divRutina.appendChild(h2);
-    divRutina.appendChild(pTituloAutor);
-    divRutina.appendChild(pAutor);
-    divRutina.appendChild(pTituloDescripcion);
-    divRutina.appendChild(pDescripcion);
+    
+    figure.appendChild(img);
+    a.appendChild(figure);
+    a.appendChild(hr);
+    a.appendChild(h2);
 
-    return divRutina;
+    divPublicaciones.appendChild(a);
+    
+
+    return divPublicaciones;
   }
 
   /*funcion auxiliar que nos crea los elementos necesarios en el html*/

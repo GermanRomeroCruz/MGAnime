@@ -76,22 +76,28 @@
   }
 
   ?>
-
-<div class="recuperaPass">
-  <?php if( isset($respuesta) && $respuesta != null) { ?>
-    <h4><?=$respuesta?></h4>
-  <?php }else{ ?>
-    <form action="recuperarPass.php" method="post">
-      <label for="email">Introduce tu correo</label>
-      <br>
-      <input type="email" name="email" id='email'>
-      <br>
-      <?php if( isset($errores['email']) ) { ?>
-        <span class="error"><?=$errores['email']?></span>
-        <br>
+<div class="w-100 d-flex  justify-content-center">
+  <div class="mt-3 d-flex flex-column rounded">
+    <h1 class="titulo w-100">Recuperar contraseña</h1>
+      <?php if( isset($respuesta) && $respuesta != null) { ?>
+        <h4><?=$respuesta?></h4>
+      <?php }else{ ?>
+        <form action="recuperarPass.php" method="post" class="bg-white text-center">
+          <label for="email" class="fs-3">Introduce tu correo</label>
+          <br>
+          <div class="input-group mb-3 d-flex justify-content-center">
+            <div class="input-group-prepend flex-grow-0">
+              <span class="input-group-text bg-dark" id="basic-addon1"><i class="fas fa-at text-white"></i></span>
+            </div>
+            <input type="email" name="email" id='email'>
+          </div>
+          <br>
+          <?php if( isset($errores['email']) ) { ?>
+            <span class="error"><?=$errores['email']?></span>
+            <br>
+          <?php } ?>
+          <input type="submit" name="enviar" value="Enviar" class="mb-3 btn btn-dark text-white">
+        </form>
       <?php } ?>
-      <input type="submit" name="enviar" value="Enviar">
-
-    </form>
-  <?php } ?>
+    </div>
 </div>

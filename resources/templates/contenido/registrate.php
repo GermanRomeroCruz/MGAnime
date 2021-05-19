@@ -7,7 +7,6 @@
 	$contraseña = "";
 	$r_contraseña = "";
 	$imagen = '';
-	$descripcion ='';
 	$errores = [];
 	//Obtenemos el nombre de todos los usuarios y su email
 	$nombresUsers = UsuarioManager::getAllNom();
@@ -57,13 +56,7 @@
 		}else{
 			$errores['error_r_contraseña'] = "Contraseña invalida";
 		}
-		//DESCRIPCION
-		if(isset($_POST['descripcion']) && strlen($_POST['descripcion'])>=1){
-			$descripcion = limpiarCadena($_POST['descripcion']);
-		}else{
-			$errores['error_descripcion'] = "Debes agregar alguna descripción.";
-		}
-		//DESCRIPCION
+		//IMAGEN
 		if(isset($_FILES['imagen']) && $_FILES['imagen']['name']!=''){
 			$imagen = limpiarCadena($_FILES['imagen']['name']);
 		}else{
@@ -74,12 +67,11 @@
 	if (count($errores)==0 && count($_POST)>0) {
 		$rutaImagen = guardarImagen($usuario,'perfil',$imagen);
 		$rol = "USER";
-		UsuarioManager::insert($usuario,$contraseña,$correo,$descripcion,$rutaImagen,$rol);
+		UsuarioManager::insert($usuario,$contraseña,$correo,$rutaImagen,$rol);
 
 		$usuario = '';
 		$contraseña = '';
 		$correo ='';
-		$descripcion='';
 		$rutaImagen='';
 		$rol='';
 		header('Location: login.php');
@@ -88,51 +80,77 @@
 
 ?>
 
-<div class="registro">
-    <form action="registrate.php" method="POST" enctype="multipart/form-data">
-				<h1>Darse de alta</h1>
-    		<label for="usuario">Nombre usuario</label>
-    		<input type="text" name="usuario" id="nombre" placeholder="Escribe tu nombre de usuario" value="<?=$usuario?>">
-        <?php if( isset($errores['error_usuario'])) { ?>
-          <br><span class='error'><?=$errores['error_usuario']?></span><br>
-        <?php } ?>
-				<?php if( isset($errores['error_usuario_duplicado'])) { ?>
-          <br><span class='error'><?=$errores['error_usuario_duplicado']?></span><br>
-        <?php } ?>
+<div class="w-100 d-flex justify-content-center mt-3">
+ 	<div class="bg-light rounded text-center">
+	    <form action="registrate.php" method="POST" enctype="multipart/form-data">
+			<h1 class="titulo">Darse de alta</h1>
+			<div>
+	    		<label for="usuario" class="mt-3">Nombre usuario</label><br>
+	    		<div class="input-group mb-3 d-flex justify-content-center mt-3">
+			     	<div class="input-group-prepend">
+			       	 	<span class="input-group-text bg-dark" id="basic-addon1"><i class="fas fa-user text-white"></i></span>
+			     	</div>
+	    			<input type="text" name="usuario" id="nombre" placeholder="Escribe tu nombre de usuario" value="<?=$usuario?>" class=""><br>
+	    		</div>
+	    	</div>
+	        <?php if( isset($errores['error_usuario'])) { ?>
+	          <br><span class='error'><?=$errores['error_usuario']?></span><br>
+	        <?php } ?>
+			<?php if( isset($errores['error_usuario_duplicado'])) { ?>
+	          <br><span class='error'><?=$errores['error_usuario_duplicado']?></span><br>
+	        <?php } ?>
+	        <div>
+				<label for="correo">Correo </label><br>
+				<div class="input-group mb-3 d-flex justify-content-center">
+					<div class="input-group-prepend flex-grow-0 mt-3">
+					    <span class="input-group-text bg-dark" id="basic-addon1"><i class="fas fa-at text-white"></i></span>
+					</div>
+					<input type="email" name="correo" id="correo" placeholder="Escribe tu email" value="<?=$correo?>" class="mt-3"><br>
+				</div>
+			</div>
+	        <?php if( isset($errores['error_correo'])) { ?>
+	          <br><span class='error'><?=$errores['error_correo']?></span><br>
+	        <?php } ?>
 
-    		<label for="correo">Correo </label>
-    		<input type="email" name="correo" id="correo" placeholder="Escribe tu email" value="<?=$correo?>">
-        <?php if( isset($errores['error_correo'])) { ?>
-          <br><span class='error'><?=$errores['error_correo']?></span><br>
-        <?php } ?>
-
+		    <div>
 				<label>Subir imagen de perfil:</label> <br>
- 				<input type="file" name="imagen" value="Seleccione archivo"> <br>
-				<?php if( isset($errores['imagen'])) { ?>
+				<input type="file" name="imagen" value="Seleccione archivo" class="btn btn-dark text-white rounded mt-3"> <br>
+			</div>
+			<?php if( isset($errores['imagen'])) { ?>
 				<br><span class='error'><?=$errores['imagen']?></span><br>
-				<?php } ?>
+			<?php } ?>
 
-    		<label for="contraseña">Contraseña </label>
-    		<input type="password" name="contraseña" id="contraseña" placeholder="Escribe tu contraseña" value="">
-        <?php if( isset($errores['contraseña'])) { ?>
-          <br><span class='error'><?=$errores['contraseña']?></span><br>
-        <?php } ?>
+			<div>
+				<label for="contraseña" class="mt-3">Contraseña </label><br>
+				<div class="input-group mb-3 d-flex justify-content-center mt-3">
+				    <div class="input-group-prepend">
+				        <span class="input-group-text bg-dark" id="basic-addon1"><i class="fas fa-key text-white"></i></span>
+				    </div>
+					<input type="password" name="contraseña" id="contraseña" placeholder="Escribe tu contraseña" value=""><br>
+				</div>
+			</div>
+	        <?php if( isset($errores['contraseña'])) { ?>
+	            <br><span class='error'><?=$errores['contraseña']?></span><br>
+	        <?php } ?>
 
-    		<label for="r_contraseña">Confirmar Contraseña </label>
-    		<input type="password" name="r_contraseña" id="r_contraseña" placeholder="Confirma tu contraseña" value="">
-        <?php if( isset($errores['error_r_contraseña'])) { ?>
-          <br><span class='error'><?=$errores['error_r_contraseña']?></span><br>
-        <?php } ?>
+	        <div>
+				<label for="r_contraseña">Confirmar Contraseña </label><br>
+				<div class="input-group mb-3 d-flex justify-content-center mt-3">
+				    <div class="input-group-prepend">
+				        <span class="input-group-text bg-dark" id="basic-addon1"><i class="fas fa-key text-white"></i></span>
+				    </div>
+					<input type="password" name="r_contraseña" id="r_contraseña" placeholder="Confirma tu contraseña" value=""><br>
+				</div>
+			</div>
+	        <?php if( isset($errores['error_r_contraseña'])) { ?>
+	          	<br><span class='error'><?=$errores['error_r_contraseña']?></span><br>
+	        <?php } ?>
 
-        <?php if( isset($errores['error_r_contraseña_dif'])) { ?>
-          <br><span class='error'><?=$errores['error_r_contraseña_dif']?></span><br>
-        <?php } ?>
-				<label for="descripcion">Escribe una descripcion:</label>
-				<textarea type="text" name="descripcion" id="descripcion" placeholder="Escribe una pequeña descripción" value="<?=$descripcion?>"></textarea>
-				<?php if( isset($errores['error_descripcion'])) { ?>
-					<br><span class='error'><?=$errores['error_descripcion']?></span><br>
-				<?php } ?>
+	        <?php if( isset($errores['error_r_contraseña_dif'])) { ?>
+	       	   <br><span class='error'><?=$errores['error_r_contraseña_dif']?></span><br>
+	        <?php } ?>
 
-    		<input type="submit" name="enviar" value="Registrarse" class="boton1">
-    	</form>
+			<input type="submit" name="enviar" value="Registrarse" class="btn btn-dark text-white rounded mt-3 mb-3">
+	    </form>
+   	</div>
 </div>

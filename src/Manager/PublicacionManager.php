@@ -73,6 +73,13 @@ class PublicacionManager {
     return $db->obtenDatos();
   }
 
+  /*ESTO ES PARA EL BUSCADOR DE CATEGORIA*/
+  public static function getCategoriaSolo($busqueda){
+    $db = DWESBaseDatos::obtenerInstancia();
+    $db->ejecuta("SELECT * FROM PUBLICACIONES WHERE  CATEGORIA LIKE  '%$busqueda%'");
+    return $db->obtenDatos();
+  }
+
 }
 
 ?>

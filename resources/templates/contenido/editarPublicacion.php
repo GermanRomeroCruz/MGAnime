@@ -7,6 +7,10 @@
      	die();
 	}
 	$publicacion = PublicacionManager::getById($idPubli);
+	if (count($publicacion)== 0) {
+		header('Location: page404.php');
+     	die();
+	}
 	$nombreUsuario = UsuarioManager::getById($_SESSION['ID']);
 	require("$ROOT/src/validar_formulario.php");
 	areaPrivada();
@@ -42,7 +46,7 @@
 	  if (isset($_FILES['imagen']) && $_FILES['imagen'] != '') {
 	    $imagen = limpiarCadena($_FILES['imagen']['name']);
 		$nombreUsuario = UsuarioManager::getById($_SESSION['ID']);
-	   $rutaImagen = guardarImagen('publicacion/',$idPubli,$_FILES['imagen']['name']);
+	   $rutaImagen = guardarImagen('publicacion',$idPubli,$_FILES['imagen']['name']);
 	  }else{
 	    $errores['imagen'] = "imagen no valida";
 	  }
@@ -58,11 +62,11 @@
 				$titulo = "";
 				$descripcion = "";
 				$autor = "";
-				$imagen = "";
+				$imagen = ""; 
 				$categoria = "";
 				$errores = [];
 				$rutaImagen="";
-	      header("Location:principal.php");
+	      header("Location:admin.php");
 	      die();
 	  }
 	}
@@ -71,40 +75,42 @@
 
  
   
-<div class="subirReceta">
-  	<form action="editarPublicacion.php?id_publi=<?=$idPubli?>" method="post" enctype="multipart/form-data">
-    <h1>Actualizar publicación</h1>
-    <label>Nombre de la publicación:</label> <br>
-    <input type="text" name="titulo" value="<?=$titulo?>"> <br>
-    <?php if( isset($errores['titulo'])) { ?>
-      <br><span class='error'><?=$errores['titulo']?></span><br>
-    <?php } ?>
+<div class="w-100 d-flex justify-content-center">
+	<div class="bg-white rounded text-center">
+	  	<form action="editarPublicacion.php?id_publi=<?=$idPubli?>" method="post" enctype="multipart/form-data">
+	    <h1 class="titulo ">Actualizar publicación</h1>
+	    <label class="mt-3 negrita">Nombre de la publicación:</label> <br>
+	    <input type="text" name="titulo" value="<?=$titulo?>" class="mt-3"> <br>
+	    <?php if( isset($errores['titulo'])) { ?>
+	      <br><span class='error'><?=$errores['titulo']?></span><br>
+	    <?php } ?>
 
-    <label>Nombre del autor:</label> <br>
-    <input type="text" name="autor" value="<?=$autor?>"> <br>
-    <?php if( isset($errores['autor'])) { ?>
-      <br><span class='error'><?=$errores['autor']?></span><br>
-    <?php } ?>
+	    <label class="mt-3 negrita">Nombre del autor:</label> <br>
+	    <input type="text" name="autor" value="<?=$autor?>" class="mt-3"> <br>
+	    <?php if( isset($errores['autor'])) { ?>
+	      <br><span class='error'><?=$errores['autor']?></span><br>
+	    <?php } ?>
 
-    <label>Descripción de la publicación:</label> <br>
-    <input type="textarea" name="descripcion" value="<?=$descripcion?>"> <br>
-    <?php if( isset($errores['descripcion'])) { ?>
-      <br><span class='error'><?=$errores['descripcion']?></span><br>
-    <?php } ?>
+	    <label class="mt-3 negrita">Descripción de la publicación:</label> <br>
+	    <textarea name="descripcion" value="<?=$descripcion?>" class="mt-3" > <?=$descripcion?></textarea><br>
+	    <?php if( isset($errores['descripcion'])) { ?>
+	      <br><span class='error'><?=$errores['descripcion']?></span><br>
+	    <?php } ?>
 
-    <label>Subir imagen de publicación:</label> <br>
-    <input type="file" name="imagen" value="Seleccione archivo"> <br>
-    <?php if( isset($errores['imagen'])) { ?>
-      <br><span class='error'><?=$errores['imagen']?></span><br>
-    <?php } ?>
+	    <label class="mt-3 negrita">Subir imagen de publicación:</label> <br>
+	    <input type="file" name="imagen" value="Seleccione archivo" class="mt-3"> <br>
+	    <?php if( isset($errores['imagen'])) { ?>
+	      <br><span class='error'><?=$errores['imagen']?></span><br>
+	    <?php } ?>
 
-	<label>Nombre de la categoría:</label> <br>
-    <input type="text" name="categoria" value="<?=$categoria?>"> <br>
-    <?php if( isset($errores['categoria'])) { ?>
-      <br><span class='error'><?=$errores['categoria']?></span><br>
-    <?php } ?>
-    <input type="submit" name="enviar" value="Actualizar" class="boton1">
-  </form>
+		<label class="mt-3 negrita">Nombre de la categoría:</label> <br>
+	    <input type="text" name="categoria" value="<?=$categoria?>" class="mt-3"> <br>
+	    <?php if( isset($errores['categoria'])) { ?>
+	      <br><span class='error'><?=$errores['categoria']?></span><br>
+	    <?php } ?>
+	    <input type="submit" name="enviar" value="Actualizar" class="btn btn-dark rounded text-white mt-3 mb-3">
+	  </form>
+	</div>
 </div>
 
   

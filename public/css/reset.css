@@ -6,11 +6,15 @@
   --colorTexto1: black;
   --colorTabla1: #BDBDBD;
   --colorTabla2: #EEEEEE;
+  --colorGris: #bfbfbf;
+  --colorMoradoOscuro: #140936;
+  --colorAzul: #5781f9;
 
 }
 /*agregada el height al 100% porque no llegaba hasta abajo si era corta la pag*/
 body,html{
   height: 100%;
+  font-family: "Century Gothic";
 }
 body{
   margin:0;

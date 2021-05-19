@@ -16,28 +16,25 @@ if(count($usuario) != 0){
 
 ?>
 <link rel="stylesheet" href="/css/header.css">
+
 <header>
-  <div id="general">
-    <div id="imagenMenu">
-      <h2 >Bienvenido a </h2>
-      <a href="principal.php">
-      <img src="imagenes/logo.png" alt="">
-    </a>
+  
+  <nav class="navigation sombraNav">
+
+    <div class="d-flex justify-content-between align-items-center">
+      <div>
+        <a href="principal.php">
+          <img src="imagenes/MGAnime-1.png" alt="" id="imagenLogo">
+        </a>
+      </div>
+      <form method="post" action="resultadosBusqueda.php">
+        <input type="text" name="busqueda" placeholder="¿Qué quieres buscar?">
+        <input type="submit" name="buscar" value="&#128270;">
+      </form>
     </div>
-    <div id="texto">
-      <h1>MGAnime</h1>
-      <?php if($mensaje == true){?>
-        <div class="bienvenido">
-          <p><a href="perfil.php"><img src="<?= $usuario['IMAGEN']?>" alt=""></a></p>
-          <p>Bienvenido/a <?= $usuario['NOMBRE']?></p>
-        </div>
-      <?php }?>
-    </div>
-  </div>
-  <figure class="menu-icon">
-    <img src="/imagenes/menu.png" alt="">
-  </figure>
-  <nav class="navigation">
+    <figure class="menu-icon">
+      <img src="/imagenes/menu.png" alt="">
+    </figure>
     <ul>
       <li><a href="principal.php">Inicio</a></li>
       <?php if(isset($_SESSION['autentificado']) && $_SESSION['autentificado'] == true ){ ?>
@@ -53,6 +50,7 @@ if(count($usuario) != 0){
       <?php }?>
     </ul>
   </nav>
+
 </header>
 <script type="text/javascript">
 

@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="/css/footer.css">
-<footer class="pie">
+<footer class="pie d-flex align-items-end mt-5">
       <div>
         <p>DAW 2020</p>
         <p id="quienesSomos"><a href="/quienesSomos.php">¿Quienes somos?</a></p>

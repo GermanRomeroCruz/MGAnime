@@ -1,5 +1,5 @@
 <!--Página por si hay un error en alguna busqueda o servidor -->
-<div class='errorBuscador'>
+<div class='errorBuscador text-white'>
     <h1>No se encontro ningun resultado de la busqueda.</h1>
     <p>
     <img src="/imagenes/robotError.png" alt="">

@@ -77,29 +77,31 @@
   }
 
   ?>
-
-<div class="recuperaPass">
-  <?php if( isset($respuesta) && $respuesta != null) { ?>
-    <h4><?=$respuesta?></h4>
-  <?php }else{ ?>
-    <form action="correoPeticiones.php" method="post">
-      <label for="email">Introduce tu correo</label>
-      <br>
-      <input type="email" name="email" id='email'>
-      <br>
-      <?php if( isset($errores['email']) ) { ?>
-        <span class="error"><?=$errores['email']?></span>
+<div class="w-100 d-flex justify-content-center">
+  <div class="bg-light rounded">
+    <?php if( isset($respuesta) && $respuesta != null) { ?>
+      <h4><?=$respuesta?></h4>
+    <?php }else{ ?>
+      <form action="correoPeticiones.php" method="post">
+        <label class="titulo w-100 " for="email">Introduce tu correo</label>
         <br>
-      <?php } ?>
-      <textarea name="sugerencia" rows="10" cols="50" placeholder="Introduce tu sugerencia"></textarea>
-      <br>
-      <?php if( isset($errores['email']) ) { ?>
-        <span class="error"><?=$errores['sugerencia']?></span>
+        <input type="email" name="email" id='email' class="w-100 mt-1 mb-1">
         <br>
-      <?php } ?>
-
-      <input type="submit" name="enviar" value="Enviar">
-
-    </form>
-  <?php } ?>
+        <?php if( isset($errores['email']) ) { ?>
+          <span class="error m-1"><?=$errores['email']?></span>
+          <br>
+        <?php } ?>
+        <label class="titulo w-100">Introduce tu sugerencia</label>
+        <textarea name="sugerencia" rows="10" cols="40" placeholder="Introduce tu sugerencia" class="w-100 mt-1 mb-1"></textarea>
+        <br>
+        <?php if( isset($errores['email']) ) { ?>
+          <span class="error m-1"><?=$errores['sugerencia']?></span>
+          <br>
+        <?php } ?>
+        <div class="d-flex justify-content-center">
+          <input class="btn btn-dark m-2 " type="submit" name="enviar" value="Enviar">
+        </div>
+      </form>
+    <?php } ?>
+  </div>
 </div>

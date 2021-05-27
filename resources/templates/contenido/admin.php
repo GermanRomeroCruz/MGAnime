@@ -11,7 +11,7 @@
      }
      //SINO AL INICIO
    }else{
-     header('Location: principal.php');
+     header('Location: admin.php');
      die();
    }
 ?>

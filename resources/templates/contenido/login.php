@@ -1,8 +1,8 @@
 <?php
-$errores = [];
-$info = ['USUARIO' => '','CONTRASEÑA' => '',];
-if( count($_POST) > 0 ){
-  gestionaErrores($_POST, $info, $errores);
+  $errores = [];
+  $info = ['USUARIO' => '','CONTRASEÑA' => '',];
+  if( count($_POST) > 0 ){
+    gestionaErrores($_POST, $info, $errores);
     if($errores == null ){
       $datos = UsuarioManager::autentificado($info['USUARIO']);
 
@@ -29,9 +29,8 @@ if( count($_POST) > 0 ){
       }
     }
   } 
-
-
 ?>
+
 <div class="w-100 d-flex justify-content-center">
  <div class="login p-3 bg-light h-auto rounded">
    <form  action="login.php" method="post" >

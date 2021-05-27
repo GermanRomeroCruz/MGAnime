@@ -1,5 +1,4 @@
 <?php
-
 	if ($_SESSION["ID"] != null) {
 		$idPubli = clear_input($_GET['id_publi']);
 	}else{
@@ -21,7 +20,6 @@
 	$errores = [];
 	$categoria = $publicacion["CATEGORIA"];
 	$rutaImagen = "";
-
 	if (count($_POST)>0 ) {
 		//titulo
 		if (isset($_POST['titulo']) && $_POST['titulo'] != '') {
@@ -40,8 +38,7 @@
 	    $descripcion = limpiarCadena($_POST['descripcion']);
 	  }else{
 	    $errores['descripcion'] = "La descripción debe de contener más de 10 caracteres.";
-	  }
-	  
+	  } 
 	  //IMAGEN
 	  if (isset($_FILES['imagen']) && $_FILES['imagen'] != '') {
 	    $imagen = limpiarCadena($_FILES['imagen']['name']);
@@ -70,7 +67,6 @@
 	      die();
 	  }
 	}
-
 ?>
 
  

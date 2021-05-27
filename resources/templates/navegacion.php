@@ -1,26 +1,19 @@
 <?php
-
-$uri = $_SERVER['REQUEST_URI'];
-//obtenemos id del usuario
-if(isset($_GET['ID'])){
-  $id = intval($_GET['ID']);
-}
-
-$admin = "ADMIN";
-
-$usuario = UsuarioManager::getById($_SESSION['ID']);
-$mensaje = false;
-if(count($usuario) != 0){
-  $mensaje = true;
-}
-
+  $uri = $_SERVER['REQUEST_URI'];
+  //obtenemos id del usuario
+  if(isset($_GET['ID'])){
+    $id = intval($_GET['ID']);
+  }
+  $admin = "ADMIN";
+  $usuario = UsuarioManager::getById($_SESSION['ID']);
+  $mensaje = false;
+  if(count($usuario) != 0){
+    $mensaje = true;
+  }
 ?>
 <link rel="stylesheet" href="/css/header.css">
-
 <header>
-  
   <nav class="navigation sombraNav">
-
     <div class="d-flex justify-content-between align-items-center">
       <div>
         <a href="principal.php">
@@ -50,15 +43,11 @@ if(count($usuario) != 0){
       <?php }?>
     </ul>
   </nav>
-
 </header>
 <script type="text/javascript">
-
     let menuBtn = document.getElementsByClassName('menu-icon')[0];
     let menu = document.querySelector('ul');
-
     menuBtn.addEventListener('click', mostrarMenu);
-
     function mostrarMenu(){
       let obtenerAtributo = menu.getAttribute('class');
       console.log(obtenerAtributo);

@@ -1,15 +1,10 @@
 <?php
-
   require("src/validar_formulario.php");
-
   $busqueda = "";
   $cadbusca = [];
   $clase = ""; 
   $errores=[];
-
   if(isset($_POST) && count($_POST)>0){
-
-   
     //select
     if($_POST['busqueda']){
         $busqueda = limpiarCadena($_POST['busqueda']);
@@ -17,15 +12,9 @@
         $errores['error_busqueda'] = "Debes introducir texto.";
     }
   }
-
   //Si la cadena de busqueda y el select son distintas de cadena vácia se meté
   if ($busqueda != ''){
-
-    
     $cadbusca[0] = PublicacionManager::getAutorSolo($busqueda);
-     
-    
-
     if($cadbusca[0] != null){
       $cadbusca[1] = PublicacionManager::getTituloSolo($busqueda);
       if ($cadbusca[1] != null ) {

@@ -1,72 +1,6 @@
-<style>
-    tr > th {
-        color: #5781f9;
-        font-weight: 800;
-    }
-
-    #btn1 /*input[type='checkbox']*/ { display: none;  }
-
-    .contenedor1 {  margin: 1.2rem 0;  }
-    
-    
-
-    .lbl-toggle1 {
-        display: block;
-        font-weight: bold;
-        font-family: monospace;
-        font-size: 1.2rem;
-        text-transform: uppercase;
-        text-align: center;
-        padding: 1rem;
-        color: #DDD; /*gris/blanco*/
-        background: black; /*#004085;*/ /*azul oscuro*/
-        cursor: pointer;
-        border-radius: 7px;
-        transition: all 0.25s ease-out;
-    }
-
-      .lbl-toggle1:hover {  color: #5781f9; /*#FFF; blanco/gris*/ }
-
-      .lbl-toggle1::before {
-          content: ' ';
-          display: inline-block;
-          border-top: 5px solid transparent;
-          border-bottom: 5px solid transparent;
-          border-left: 5px solid currentColor;
-          vertical-align: middle;
-          margin-right: .7rem;
-          transform: translateY(-2px);
-          transition: transform .2s ease-out;
-      }
-
-  .toggle1:checked + .lbl-toggle1::before {  transform: rotate(90deg) translateX(-3px); }
-
-  .contenido-esconder1 {
-      max-height: 0px;
-      overflow: hidden;
-      transition: max-height .25s ease-in-out;
-  }
-
-  .toggle1:checked + .lbl-toggle1 + .contenido-esconder1 {  max-height: 350px;  }
-
-  .toggle1:checked + .lbl-toggle1{
-      border-bottom-right-radius: 0;
-      border-bottom-left-radius: 0;
-  }
-
-  .contenido-esconder1 .contenido {
-      padding: 1rem;
-  }
-
-  .contenido-esconder1 form{  margin-bottom: 0;  }
-
-</style>
-
-
 <?php
   global $ROOT;
   global $config;
-
   if(isset($_GET['id']) || isset($_POST['id'])){
     if (isset($_GET['idCom'])) {
       if(isset($_GET['id'])){
@@ -83,7 +17,6 @@
         $id = $_POST['id'];
       }
     }
-    
   }
   if (isset($_POST) && $_POST['comentario'] != "") {
     $comentario = clear_input($_POST['comentario']);
@@ -97,18 +30,12 @@
   }
   $fav = PublicacionFavoritaManager::getByIdPublicacion($id,$id_user);
   $com = ComentarioManager::getAll($datosPublicacion['ID_PUBLI']);
-
   if($fav == null){
     $favoritos = 'null';
   }else{
     $favoritos = $fav[0]['ID_PUBLI_FAV'];
   }
-  
-    
-
 ?>
-
-
 
 <div class="d-flex flex-column text-white bg-dark">
 <div class=" text-white bg-dark">

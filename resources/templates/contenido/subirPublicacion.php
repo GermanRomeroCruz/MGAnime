@@ -8,7 +8,6 @@
 	$errores = [];
 	$categoria = "";
 	$rutaImagen = "";
-
 	if (count($_POST)>0 ) {
 		//titulo
 		if (isset($_POST['titulo']) && $_POST['titulo'] != '') {
@@ -22,41 +21,40 @@
 		}else{
 			$errores['autor'] = "El autor de la publicacion debe ser mayor a 3 caracteres.";
 		}
-	  //DESCRIPCION
-	  if (isset($_POST['descripcion']) && $_POST['descripcion'] != '') {
-	    $descripcion = limpiarCadena($_POST['descripcion']);
-	  }else{
-	    $errores['descripcion'] = "La descripción debe de contener más de 10 caracteres.";
-	  }
+		//DESCRIPCION
+		if (isset($_POST['descripcion']) && $_POST['descripcion'] != '') {
+		 	 $descripcion = limpiarCadena($_POST['descripcion']);
+		}else{
+		 	 $errores['descripcion'] = "La descripción debe de contener más de 10 caracteres.";
+		}
 	  
-	  //IMAGEN
-	  if (isset($_FILES['imagen']['name']) && $_FILES['imagen']['name'] != '') {
-	    $imagen = limpiarCadena($_FILES['imagen']['name']);
+	  	//IMAGEN
+	  	if (isset($_FILES['imagen']['name']) && $_FILES['imagen']['name'] != '') {
+	  	  	$imagen = limpiarCadena($_FILES['imagen']['name']);
 			$nombreUsuario = UsuarioManager::getById($id_usuario);
-	    $rutaImagen = guardarImagen($nombreUsuario['NOMBRE'].'/recetas',$nombre,$_FILES['imagen']['name']);
-	  }else{
-	    $errores['imagen'] = "imagen no valida";
-	  }
+	   		$rutaImagen = guardarImagen($nombreUsuario['NOMBRE'].'/recetas',$nombre,$_FILES['imagen']['name']);
+	 	}else{
+	   		$errores['imagen'] = "imagen no valida";
+	 	}
 		//categoría
 		if (isset($_POST['categoria']) && $_POST['categoria'] != '') {
 			$categoria = limpiarCadena($_POST['categoria']);
 		}else{
 			$errores['categoria'] = "El categoría de la publicacion debe ser mayor a 3 caracteres.";
 		}
-	  if (count($errores) == 0) {
-	      PublicacionManager::insert($titulo,$autor,$rutaImagen,$descripcion,$categoria);
-				$titulo = "";
-				$descripcion = "";
-				$autor = "";
-				$imagen = "";
-				$categoria = "";
-				$errores = [];
-				$rutaImagen="";
-	      header("Location:principal.php");
-	      die();
-	  }
+	  	if (count($errores) == 0) {
+	     	PublicacionManager::insert($titulo,$autor,$rutaImagen,$descripcion,$categoria);
+			$titulo = "";
+			$descripcion = "";
+			$autor = "";
+			$imagen = "";
+			$categoria = "";
+			$errores = [];
+			$rutaImagen="";
+	    	header("Location:principal.php");
+	    	die();
+	  	}
 	}
-
 ?>
 
 <div class="mx-auto m-3 bg-white text-center rounded">

@@ -23,7 +23,6 @@
       $errores['email'] = 'Introduce un correo';
     }
     if ( $errores == null ) {
-
       $token = TokenManager::getToken();
       //Inicializar
       $mail = new PHPMailer();
@@ -39,22 +38,20 @@
       $mail->SMTPDebug  = 0;
       $mail->SMTPAuth   = TRUE;
       $mail->SMTPSecure = "tls";
-      $mail->Port       = 587;                        //puerto
-      $mail->Host       = $datosEmail['server'];           //servidor
-      $mail->Username   = $datosEmail['correo'];      //tu correo
-      $mail->Password   = $datosEmail['pass'];              //contraseña
+      $mail->Port       = 587;//puerto
+      $mail->Host       = $datosEmail['server'];//servidor
+      $mail->Username   = $datosEmail['correo'];//tu correo
+      $mail->Password   = $datosEmail['pass'];//contraseña
 
       $http = 'http://localhost:9000/';
       $mail->IsHTML(true);
-      $mail->AddAddress($correo);    //destinatario
-      $mail->SetFrom($datosEmail['correo'], "Ponte en Forma");                    // quien envia el correo
-      //$mail->AddReplyTo("reply-to-email@domain", "reply-to-name");          para añadir otro destinatario
-      //$mail->AddCC("cc-recipient-email@domain", "cc-recipient-name");       con copia oculta
+      $mail->AddAddress($correo);//destinatario
+      $mail->SetFrom($datosEmail['correo'], "MGAnime");// quien envia el correo
 
-      $mail->Subject = "Ponte en Forma- Recuperar Password";                               //cabecera
+      $mail->Subject = "MGAnime- Recuperar Password";//cabecera
       $content =
-        "<h1>Ponte en Forma</1>".
-        "<h4>Tu rutina diaria te espera</h4>" .
+        "<h1>MGAnime</1>".
+        "<h4>Tu página favorita te espera</h4>" .
         "<p>Hemos recibido una peticion para cambiar la contrase&#241;a,
           haga click en el siguiente enlace y sera redirigido
         </p>" .
@@ -63,19 +60,19 @@
         "<p>Saludos</p>"
       ;
       //ENVIAR EMAIL
-    $mail->MsgHTML($content);
-    if(!$mail->Send()) {
-      $respuesta = 'Error al enviar correo para el cambio de contraseña a: '. $correo. "\nVuelva a intentarlo";
+      $mail->MsgHTML($content);
+      if(!$mail->Send()) {
+        $respuesta = 'Error al enviar correo para el cambio de contraseña a: '. $correo. "\nVuelva a intentarlo";
 
-    } else {
-      TokenManager::delete($correo);
-      TokenManager::insert($correo, $token);
-      $respuesta = 'Hemos enviado un correo para recuperar la contraseña a: '. $correo;
+      } else {
+        TokenManager::delete($correo);
+        TokenManager::insert($correo, $token);
+        $respuesta = 'Hemos enviado un correo para recuperar la contraseña a: '. $correo;
+      }
     }
   }
-  }
 
-  ?>
+?>
 <div class="w-100 d-flex  justify-content-center">
   <div class="mt-3 d-flex flex-column rounded">
     <h1 class="titulo w-100">Recuperar contraseña</h1>

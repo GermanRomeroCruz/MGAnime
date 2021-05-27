@@ -60,14 +60,10 @@ function guardarImagen($carpeta,$id,$imagen){
 
 //Función para borrar las carpetas, eliminando primero los archivos que tiene dentro
 function borrarImagenes($id){
-
-  $mis_fotos = "/home/usuario/MGAnime/public/imgs/publicacion/".$id;    // Carpeta que contine archivos y queremos eliminar 
-
-  foreach(glob($mis_fotos."/*.*") as $archivos_carpeta) 
-  { 
-   unlink($archivos_carpeta);     // Eliminamos todos los archivos de la carpeta hasta dejarla vacia 
+  $mis_fotos = "/home/usuario/MGAnime/public/imgs/publicacion/".$id;// Carpeta que contine archivos y queremos eliminar 
+  foreach(glob($mis_fotos."/*.*") as $archivos_carpeta) { 
+    unlink($archivos_carpeta);// Eliminamos todos los archivos de la carpeta hasta dejarla vacia 
   } 
-  rmdir($mis_fotos);         // Eliminamos la carpeta vacia 
-
+  rmdir($mis_fotos);// Eliminamos la carpeta vacia 
 }
 ?>

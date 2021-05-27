@@ -11,7 +11,7 @@
      }
      //SINO AL INICIO
    }else{
-     header('Location: admin.php');
+     header('Location: principal.php');
      die();
    }
 ?>
@@ -63,7 +63,7 @@
   <div>
     <h2>Publicación</h2>
     <div>
-      <a href="subirPublicacion.php" class="text-white">➕ Añadir Publicación </a>
+      <a href="subirPublicacion.php" class="text-white">➕ Subir Publicación </a>
     </div>
     <div>
       <div class="tablaRecetas">

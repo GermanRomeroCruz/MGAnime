@@ -57,38 +57,40 @@
 	}
 ?>
 
-<div class="mx-auto m-3 bg-white text-center rounded">
-  <form action="subirPublicacion.php" method="post" enctype="multipart/form-data">
-    <h1>Subir publicación</h1>
-    <label class="titulo w-100 mt-1 mb-1">Nombre de la publicación:</label> <br>
-    <input type="text" name="titulo" value="<?=$titulo?>"> <br>
-    <?php if( isset($errores['titulo'])) { ?>
-      <br><span class='error'><?=$errores['titulo']?></span><br>
-    <?php } ?>
+<div class="w-100 d-flex justify-content-center">
+	<div class="bg-white rounded text-center">
+	  <form action="subirPublicacion.php" method="post" enctype="multipart/form-data">
+	    <h1>Subir publicación</h1>
+	    <label class="titulo w-100 mt-1 mb-1">Nombre de la publicación:</label> <br>
+	    <input type="text" name="titulo" value="<?=$titulo?>"> <br>
+	    <?php if( isset($errores['titulo'])) { ?>
+	      <br><span class='error'><?=$errores['titulo']?></span><br>
+	    <?php } ?>
 
-    <label class="titulo w-100 mt-1 mb-1">Nombre del autor:</label> <br>
-    <input type="text" name="autor" value="<?=$autor?>"> <br>
-    <?php if( isset($errores['autor'])) { ?>
-      <br><span class='error'><?=$errores['autor']?></span><br>
-    <?php } ?>
+	    <label class="titulo w-100 mt-1 mb-1">Nombre del autor:</label> <br>
+	    <input type="text" name="autor" value="<?=$autor?>"> <br>
+	    <?php if( isset($errores['autor'])) { ?>
+	      <br><span class='error'><?=$errores['autor']?></span><br>
+	    <?php } ?>
 
-    <label class="titulo w-100 mt-1 mb-1">Descripción de la publicación:</label> <br>
-    <input type="textarea" name="descripcion" value="<?=$descripcion?>"> <br>
-    <?php if( isset($errores['descripcion'])) { ?>
-      <br><span class='error'><?=$errores['descripcion']?></span><br>
-    <?php } ?>
+	    <label class="titulo w-100 mt-1 mb-1">Descripción de la publicación:</label> <br>
+	    <input type="textarea" name="descripcion" value="<?=$descripcion?>"> <br>
+	    <?php if( isset($errores['descripcion'])) { ?>
+	      <br><span class='error'><?=$errores['descripcion']?></span><br>
+	    <?php } ?>
 
-    <label class="titulo w-100 mt-1 mb-1">Subir imagen de publicación:</label> <br>
-    <input type="file" name="imagen" value="Seleccione archivo"> <br>
-    <?php if( isset($errores['imagen'])) { ?>
-      <br><span class='error'><?=$errores['imagen']?></span><br>
-    <?php } ?>
+	    <label class="titulo w-100 mt-1 mb-1">Subir imagen de publicación:</label> <br>
+	    <input type="file" name="imagen" value="Seleccione archivo"> <br>
+	    <?php if( isset($errores['imagen'])) { ?>
+	      <br><span class='error'><?=$errores['imagen']?></span><br>
+	    <?php } ?>
 
-	<label class="titulo w-100 mt-1 mb-1">Nombre de la categoría:</label> <br>
-    <input type="text" name="categoria" value="<?=$categoria?>"> <br>
-    <?php if( isset($errores['categoria'])) { ?>
-      <br><span class='error'><?=$errores['categoria']?></span><br>
-    <?php } ?>
-    <input type="submit" name="enviar" value="Subir Publicacion" class="btn btn-dark text-white m-2 rounded">
-  </form>
+		<label class="titulo w-100 mt-1 mb-1">Nombre de la categoría:</label> <br>
+	    <input type="text" name="categoria" value="<?=$categoria?>"> <br>
+	    <?php if( isset($errores['categoria'])) { ?>
+	      <br><span class='error'><?=$errores['categoria']?></span><br>
+	    <?php } ?>
+	    <input type="submit" name="enviar" value="Subir Publicacion" class="btn btn-dark text-white m-2 rounded">
+	  </form>
+	</div>
 </div>

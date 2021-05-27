@@ -21,7 +21,7 @@ if(isset($_GET['id_publi'])){
   borrarImagenes($id);
 }
 
-header("Location:principal.php");
+header("Location:admin.php");
 die();
 
 ?>
